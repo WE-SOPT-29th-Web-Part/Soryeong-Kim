@@ -7,47 +7,65 @@
     <title>령이의 할 일 목록</title>
 </head>
 <body>
-    <header>
-        <h1>령이의 하루 루틴 톺아보기</h1>
-        <nav>
-            <div>외출루틴</div>
-            <div>취침루틴</div>
-            <div>함께보기</div>
+    <header class="header">
+        <h1 class="header__title">령이의 하루 루틴 톺아보기</h1>
+        <nav class="header__btns">
+            <div class="header__btn">외출루틴</div>
+            <div class="header__btn">취침루틴</div>
+            <div class="header__btn">함께보기</div>
         </nav>
     </header>
-    <main>
-        <section>
-            <header>
-                <img src="./asset/iconFlowerDay.svg" alt="">
-                <h3>령이의 외출 루틴</h3>
-                <img src="./asset/iconFlowerDay.svg" alt="">
+    <main class="routine">
+        <section class="routine__day">
+            <header class="routine__title">
+                <div class="routine_icon"></div>
+                <h3 class="routine__text">령이의 외출 루틴</h3>
+                <div class="routine_icon"></div>
             </header>
-            <ul>
-                <li>물마시기</li>
-                <li>씻기</li>
-                <li>마스크팩</li>
+            <ul class="routine__items">
+                <li class="routine__item--done">
+                    <div class="routine__btn"></div>
+                    <span class="routine__text">물마시기</span>
+                </li>
+                <li class="routine__item">
+                    <div class="routine__btn"></div>
+                    <span class="routine__text">씻기</span>
+                </li>
+                <li class="routine__item">
+                    <div class="routine__btn"></div>
+                    <span class="routine__text">마스크팩</span>
+                </li>
             </ul>
-            <div>
-                <img src="./asset/iconStarOff.svg" alt="">
+            <div class="submit-form">
+                <div class="submit-form__icon"></div>
                 <input type="text">
-                <div>추가</div>
+                <div class="submit-form__btn">추가</div>
             </div>
         </section>
-        <section>
-            <header>
-                <img src="./asset/iconFlowerDay.svg" alt="">
-                <h3>령이의 취침 루틴</h3>
-                <img src="./asset/iconFlowerDay.svg" alt="">
+        <section class="routine__night">
+            <header class="routine__title">
+                <div class="routine_icon"></div>
+                <h3 class="routine__text">령이의 취침 루틴</h3>
+                <div class="routine_icon"></div>
             </header>
-            <ul>
-                <li>물마시기</li>
-                <li>씻기</li>
-                <li>마스크팩</li>
+            <ul class="routine__items">
+                <li class="routine__item--done">
+                    <div class="routine__btn"></div>
+                    <span class="routine__text">물마시기</span>
+                </li>
+                <li class="routine__item">
+                    <div class="routine__btn"></div>
+                    <span class="routine__text">씻기</span>
+                </li>
+                <li class="routine__item">
+                    <div class="routine__btn"></div>
+                    <span class="routine__text">마스크팩</span>
+                </li>
             </ul>
-            <div>
-                <img src="./asset/iconStarOff.svg" alt="">
+            <div class="submit-form">
+                <div class="submit-form__icon"></div>
                 <input type="text">
-                <div>추가</div>
+                <div class="submit-form__btn">추가</div>
             </div>
         </section>
     </main>
