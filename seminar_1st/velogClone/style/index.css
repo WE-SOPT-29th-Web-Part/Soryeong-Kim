@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    font-weight: normal;
+    font-style: normal;
+    src: url("./style/font/NotoSansKR-Regular.otf") format("truetype");
+}
+
+html {
+    font-family: "NotoSans";
+    font-size: 10px;
+    letter-spacing: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
