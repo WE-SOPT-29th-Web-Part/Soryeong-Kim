@@ -16,18 +16,18 @@ html {
     font-family: "NotoSans";
     font-size: 10px;
     letter-spacing: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: rgb(248, 249, 250);
-    width: 1376px;
     height: 100vh;
 }
 
 .header {
+    width: 1376px;
     height: 4rem;
     display: flex;
     align-items: center;
@@ -65,6 +65,7 @@ body {
     margin-top: 6rem;
     display: flex;
     flex-direction: column;
+    width: 1375px;
 }
 
 .nav {
@@ -137,7 +138,7 @@ body {
 .posts {
     margin: 2rem -1rem 0 -1rem;
     display: grid;
-    grid-template-columns: repeat(5, minmax(20rem, auto));
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .post__main-wrap {
@@ -156,6 +157,11 @@ body {
     box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
     margin: 1rem;
     transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+}
+
+.post:hover {
+    transform: translateY(-10px);
+    box-shadow: rgb(0 0 0 / 8%) 0px 12px 20px 0px;
 }
 
 .post__main-img {
@@ -185,7 +191,6 @@ body {
     height: 4rem;
     margin-bottom: 1.5rem;
     overflow: hidden;
-    /* overflow-wrap: break-word; */
 }
 
 .post__info-section {
@@ -200,7 +205,6 @@ body {
 }
 
 .post__writer-info {
-    /* width: 32rem; */
     display: flex;
     justify-content: space-between;
     padding: 1rem;
@@ -238,4 +242,38 @@ body {
     background-image: url(../asset/icon/likeOn.svg);
     object-fit: cover;
     background-repeat: no-repeat;
+}
+
+@media (max-width: 1440px) {
+    .header,
+    .main-container {
+        width: 1024px;
+    }
+
+    .posts {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .header,
+    .main-container {
+        width: calc(100% - 4rem);
+    }
+
+    .posts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .posts {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
