@@ -11,53 +11,394 @@
     <header class="header">
         <h2 class="header__logo">velog by ryeong</h2>
         <section class="header__icon-section">
-            <button class="header__search-icon"></button>
+            <div class="header__search-icon"></div>
+            <button class="header__posting-icon">새 글 작성</button>
             <section class="header__user-section">
                 <div class="header__user-icon"></div>
                 <div class="header__more-icon"></div>
             </section>
         </section>
     </header>
-    <nav class="nav">
-        <div class="nav__tabs">
-            <div class="nav__trending">
-                <div class="nav__icon"></div>
-                트렌딩
+    <main class="main-container">
+        <nav class="nav">
+            <div class="nav__tabs">
+                <div class="nav__trending --focused">
+                    <div class="nav__icon"></div>
+                    트렌딩
+                </div>
+                <div class="nav__recent">
+                    <div class="nav__icon"></div>
+                    최신
+                </div>
+                <div class="nav__period">
+                    이번주
+                    <div class="nav__icon"></div>
+                </div>
             </div>
-            <div class="nav__recent">
-                <div class="nav__icon"></div>
-                최신
-            </div>
-            <div class="nav__period">
-                이번주
-                <button class="nav__icon"></button>
-            </div>
-        </div>
-        <button class="nav__more-icon"></button>
-    </nav>
-    <main class="posts">
-        <article class="post">
-            <section class="post__title">
-                <img class="post__main-img" src="" alt="">
-                <h5 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h5>
-                <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framewo</p>
-            </section>
-            <section class="post__info-section">
-                <span class="post__time">어제</span>
-                ·
-                <span class="post__comment">0개의 댓글</span>
-            </section>
-            <section class="post__writer-info">
-                <section class="post__writer">
-                    <div class="post__profile"></div>
-                    by <span class="post__id">soryeongk</span>
+            <div class="nav__more-icon"></div>
+        </nav>
+        <section class="posts">
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post01.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
                 </section>
-                <section class="post__like">
-                    <div class="post__icon"></div>
-                    <span class="post__like-num">7</span>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
                 </section>
-            </section>
-        </article>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post02.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post03.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post04.jpg" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post05.jpg" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post06.jpg" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post07.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post01.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post02.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post02.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post03.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post04.jpg" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post05.jpg" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post06.jpg" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+            <article class="post">
+                <section class="post__main-wrap">
+                    <img class="post__main-img" src="./asset/post/post07.png" alt="">
+                    <section class="post__main">
+                        <h4 class="post__title">프레임 워크가 무엇이고, 어떻게 사용해야할까?? ()</h4>
+                        <p class="post__desc">우리는 웹 개발을 할 때, 앱 개발을 할 때, 인공지능 개발을 할 때, 게임 개발을 할 때, 어떤 개발을 하던 우리는 프레임워크를 사용해서 개발을 합니다. 그렇다면 프레임워크 먼가.. 느낌상 라이브러리 비슷한거 같긴 한데 정확히 무엇일까요?? 프레임워크(Framework)</p>
+                    </section>
+                </section>
+                <section class="post__info-section">
+                    <span class="post__time">어제</span>
+                    <span class="post__separator">·</span>
+                    <span class="post__comment">0개의 댓글</span>
+                </section>
+                <section class="post__writer-info">
+                    <section class="post__writer">
+                        <div class="post__profile"></div>
+                        by <span class="post__id">soryeongk</span>
+                    </section>
+                    <section class="post__like">
+                        <div class="post__icon"></div>
+                        <span class="post__like-num">7</span>
+                    </section>
+                </section>
+            </article>
+        </section>
     </main>
 </body>
 </html>
