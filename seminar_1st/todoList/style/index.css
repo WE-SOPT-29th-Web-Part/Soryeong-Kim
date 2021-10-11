@@ -59,7 +59,8 @@ li {
 }
 
 .header__btn:hover,
-.header__btn.--focused {
+.header__btn.--focused,
+.submit-form__btn:hover {
     background-color: #66bcbc;
     color: white;
 }
