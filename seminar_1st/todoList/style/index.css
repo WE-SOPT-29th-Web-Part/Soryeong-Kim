@@ -55,9 +55,11 @@ li {
     line-height: 1.6rem;
     letter-spacing: 0.32rem;
     margin-left: 2.5rem;
+    cursor: pointer;
 }
 
-.--focused {
+.header__btn:hover,
+.header__btn.--focused {
     background-color: #66bcbc;
     color: white;
 }
@@ -71,10 +73,19 @@ li {
 
 .routine__day,
 .routine__night {
+    transition: all 0.5s ease;
+    visibility: hidden;
+    width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+.routine__day.--focused,
+.routine__night.--focused {
+    width: 100%;
+    visibility: visible;
 }
 
 .routine__title {
