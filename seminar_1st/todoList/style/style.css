@@ -172,7 +172,11 @@ li {
 }
 
 .submit-form__input {
+    padding: 1rem;
+    width: 70%;
+    height: 100%;
     border: none;
+    font-size: 2rem;
 }
 
 .submit-form__btn {
