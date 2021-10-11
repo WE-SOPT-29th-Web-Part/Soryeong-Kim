@@ -87,8 +87,11 @@ const writeRoutine = (dayNight, routineList) => {
   } else {
     console.log(`[SUCCESS] ${dayNight} 로딩`);
     // console.log(`[SUCCESS] ${dayNight} ${routineList}`);
-    document.querySelector(`.routine__${dayNight} .routine__items`).innerHTML =
-      routineList.join("");
+    const routineField = document.querySelector(
+      `.routine__${dayNight} .routine__items`
+    );
+    routineField.innerHTML = routineList.join("");
+    routineField.scrollTop = routineField.scrollHeight;
   }
 };
 
