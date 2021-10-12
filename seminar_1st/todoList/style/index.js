@@ -28,22 +28,7 @@ function openSection() {
 function updateHTML() {
   const headerBtns = document.querySelector(".header__btns");
   const sections = document.querySelectorAll(".routine > section");
-  // const focused = document.querySelector(".header__btn.--focused").innerText;
-  // const sectionDay = document.querySelector(".routine__day");
-  // const sectionNight = document.querySelector(".routine__night");
-  // switch (focused) {
-  //   case "외출루틴":
-  //     sectionDay.classList.add("--focused");
-  //     sectionNight.classList.remove("--focused");
-  //     break;
-  //   case "취침루틴":
-  //     sectionNight.classList.add("--focused");
-  //     sectionDay.classList.remove("--focused");
-  //     break;
-  //   default:
-  //     sectionDay.classList.add("--focused");
-  //     sectionNight.classList.add("--focused");
-  // }
+
   headerBtns.addEventListener("click", (e) => {
     if (e.target.tagName != "BUTTON") return;
     switch (e.target.className) {
