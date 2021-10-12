@@ -12,13 +12,13 @@
     <header class="header">
         <h1 class="header__title">령이의 하루 루틴 톺아보기</h1>
         <nav class="header__btns">
-            <div class="header__btn">외출루틴</div>
-            <div class="header__btn">취침루틴</div>
-            <div class="header__btn --focused">함께보기</div>
+            <button class="btn__day">외출루틴</button>
+            <button class="btn__night">취침루틴</button>
+            <button class="btn__both --focused">함께보기</button>
         </nav>
     </header>
     <main class="routine">
-        <section class="routine__day">
+        <section class="routine__day --focused">
             <div class="routine__list">
                 <header class="routine__title">
                     <div class="routine__icon"></div>
@@ -33,7 +33,7 @@
                 <div class="submit-form__btn">추가</div>
             </form>
         </section>
-        <section class="routine__night">
+        <section class="routine__night --focused">
             <div class="routine__list">
                 <header class="routine__title">
                     <div class="routine__icon"></div>

@@ -45,9 +45,10 @@ li {
     display: flex;
 }
 
-.header__btn {
+.header__btns button {
     border-radius: 2.5rem;
     border: 0.3rem solid #66bcbc;
+    background-color: white;
     text-align: center;
     padding: 0.7rem 1.2rem;
     font-size: 1.6rem;
@@ -58,8 +59,8 @@ li {
     cursor: pointer;
 }
 
-.header__btn:hover,
-.header__btn.--focused,
+.header__btns button:hover,
+.header__btns button.--focused,
 .submit-form__btn:hover {
     background-color: #66bcbc;
     color: white;
@@ -220,7 +221,7 @@ li {
 }
 
 .footer {
-    margin: 0rem 0 3rem 3rem;
+    margin: 0 0 3rem 3rem;
     /* margin: 6rem 0 3rem 3rem; */
     font-size: 3rem;
     font-weight: bold;
