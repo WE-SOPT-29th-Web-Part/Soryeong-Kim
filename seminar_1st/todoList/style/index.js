@@ -1,6 +1,6 @@
 "use strict";
 
-const main = () => {
+function main() {
   updateHTML();
   openSection();
 
@@ -8,10 +8,10 @@ const main = () => {
     writeRoutine(dayNight, loadRoutines(dayNight));
     updateRoutineList(dayNight);
   });
-};
+}
 
-const openSection = () => {
-  const headerBtns = document.querySelectorAll(".header__btn");
+function openSection() {
+  const headerBtns = document.querySelectorAll(".header__btns > Button");
   const handleOnClick = (e) => {
     headerBtns.forEach((btn) => {
       btn.classList.remove("--focused");
@@ -23,28 +23,47 @@ const openSection = () => {
   headerBtns.forEach((btn) => {
     btn.addEventListener("click", handleOnClick);
   });
-};
+}
 
-const updateHTML = () => {
-  const focused = document.querySelector(".header__btn.--focused").innerText;
-  const sectionDay = document.querySelector(".routine__day");
-  const sectionNight = document.querySelector(".routine__night");
-  switch (focused) {
-    case "외출루틴":
-      sectionDay.classList.add("--focused");
-      sectionNight.classList.remove("--focused");
-      break;
-    case "취침루틴":
-      sectionNight.classList.add("--focused");
-      sectionDay.classList.remove("--focused");
-      break;
-    default:
-      sectionDay.classList.add("--focused");
-      sectionNight.classList.add("--focused");
-  }
-};
+function updateHTML() {
+  const headerBtns = document.querySelector(".header__btns");
+  const sections = document.querySelectorAll(".routine > section");
+  // const focused = document.querySelector(".header__btn.--focused").innerText;
+  // const sectionDay = document.querySelector(".routine__day");
+  // const sectionNight = document.querySelector(".routine__night");
+  // switch (focused) {
+  //   case "외출루틴":
+  //     sectionDay.classList.add("--focused");
+  //     sectionNight.classList.remove("--focused");
+  //     break;
+  //   case "취침루틴":
+  //     sectionNight.classList.add("--focused");
+  //     sectionDay.classList.remove("--focused");
+  //     break;
+  //   default:
+  //     sectionDay.classList.add("--focused");
+  //     sectionNight.classList.add("--focused");
+  // }
+  headerBtns.addEventListener("click", (e) => {
+    if (e.target.tagName != "BUTTON") return;
+    switch (e.target.className) {
+      case "btn__day --focused":
+        sections[0].classList.add("--focused");
+        sections[1].classList.remove("--focused");
+        break;
+      case "btn__night --focused":
+        sections[0].classList.remove("--focused");
+        sections[1].classList.add("--focused");
+        break;
+      default:
+        console.log(e.target.className);
+        sections[0].classList.add("--focused");
+        sections[1].classList.add("--focused");
+    }
+  });
+}
 
-const submitRoutine = (dayNight) => {
+function submitRoutine(dayNight) {
   event.preventDefault();
 
   const routineInput = event.target.querySelector("input");
@@ -57,29 +76,29 @@ const submitRoutine = (dayNight) => {
   const routineList = loadRoutines(dayNight);
   writeRoutine(dayNight, routineList);
   routineInput.value = "";
-};
+}
 
-const updateRoutineList = (dayNight) => {
+function updateRoutineList(dayNight) {
   const routineInputForm = document.querySelector(
     `.routine__${dayNight} .submit-form`
   );
   routineInputForm.addEventListener("submit", (event) =>
     submitRoutine(dayNight)
   );
-};
+}
 
-const loadRoutines = (dayNight) => {
+function loadRoutines(dayNight) {
   return JSON.parse(localStorage[dayNight] || "[]");
-};
+}
 
-const saveRoutines = (dayNight, routine) => {
+function saveRoutines(dayNight, routine) {
   const routineList = loadRoutines(dayNight);
   // console.log(dayNight, routineList);
   routineList.push(routine);
   localStorage[dayNight] = JSON.stringify(routineList);
-};
+}
 
-const writeRoutine = (dayNight, routineList) => {
+function writeRoutine(dayNight, routineList) {
   if (dayNight == "both") {
     console.log("[SUCCESS] 함께 보기 로딩");
     writeRoutine("day", routineList);
@@ -93,6 +112,6 @@ const writeRoutine = (dayNight, routineList) => {
     routineField.innerHTML = routineList.join("");
     routineField.scrollTop = routineField.scrollHeight;
   }
-};
+}
 
 main();
