@@ -200,22 +200,10 @@ li {
     justify-content: space-between;
 }
 
-.submit-form__icon {
-    display: inline-block;
-    background-image: url(../asset/iconStarOff.svg);
-    background-repeat: no-repeat;
-    width: 3rem;
-    height: 3rem;
-    margin-left: 1.5rem;
-}
-
-.submit-form__icon:hover {
-    background-image: url(../asset/iconStarOn.svg);
-}
-
 .submit-form__input {
+    margin-left: 2rem;
     padding: 1rem;
-    width: 70%;
+    width: 80%;
     height: 100%;
     border: none;
     font-size: 2rem;
