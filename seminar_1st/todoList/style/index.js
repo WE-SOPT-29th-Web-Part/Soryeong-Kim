@@ -1,69 +1,103 @@
 "use strict";
 
 function main() {
-  updateHTML();
-  openSection();
-
-  ["day", "night"].forEach((dayNight) => {
-    writeRoutine(dayNight, loadRoutines(dayNight));
-    updateRoutineList(dayNight);
-  });
+  updateHeader();
+  updateHTML("day");
+  updateHTML("night");
 }
 
-function openSection() {
-  const headerBtns = document.querySelectorAll(".header__btns > Button");
-  const handleOnClick = (e) => {
-    headerBtns.forEach((btn) => {
-      btn.classList.remove("--focused");
-    });
-    e.target.classList.add("--focused");
-    updateHTML();
-  };
-
-  headerBtns.forEach((btn) => {
-    btn.addEventListener("click", handleOnClick);
-  });
+function updateHTML(dayNight) {
+  const routineList = loadRoutines(dayNight);
+  writeRoutine(dayNight, routineList);
+  setInputForm(dayNight);
 }
 
-function updateHTML() {
-  const headerBtns = document.querySelector(".header__btns");
+function updateHeader() {
+  const nav = document.querySelector(".header__btns");
+  const navBtns = document.querySelectorAll(".header__btns > button");
   const sections = document.querySelectorAll(".routine > section");
 
-  headerBtns.addEventListener("click", (e) => {
+  const removeFocus = () => {
+    navBtns.forEach((btn) => {
+      btn.classList.remove("--focused");
+    });
+  };
+
+  nav.addEventListener("click", (e) => {
     if (e.target.tagName != "BUTTON") return;
+    removeFocus();
     switch (e.target.className) {
-      case "btn__day --focused":
+      case "btn__day":
+        e.target.classList.add("--focused");
         sections[0].classList.add("--focused");
         sections[1].classList.remove("--focused");
         break;
-      case "btn__night --focused":
+      case "btn__night":
+        e.target.classList.add("--focused");
         sections[0].classList.remove("--focused");
         sections[1].classList.add("--focused");
         break;
       default:
-        console.log(e.target.className);
+        e.target.classList.add("--focused");
         sections[0].classList.add("--focused");
         sections[1].classList.add("--focused");
     }
   });
 }
 
-function submitRoutine(dayNight) {
-  event.preventDefault();
-
-  const routineInput = event.target.querySelector("input");
-  const routine = `
-                    <li class="routine__item">
-                        <div class="routine__btn"></div>
-                        <span class="routine__text">${routineInput.value}</span>
-                    </li>`;
-  saveRoutines(dayNight, routine);
-  const routineList = loadRoutines(dayNight);
-  writeRoutine(dayNight, routineList);
-  routineInput.value = "";
+function updateRoutineBtn(dayNight) {
+  const checkIcons = document.querySelectorAll(`.routine__btn.${dayNight}`);
+  for (let i = 0; i < checkIcons.length; i++) {
+    checkIcons[i].addEventListener("click", (e) => {
+      e.preventDefault();
+      e.target.classList.toggle("--done");
+      e.target.parentElement.querySelector("img").classList.toggle("--done");
+      const dayNight = e.target.classList.contains("day") ? "day" : "night";
+      let routineList = loadRoutines(dayNight);
+      const routine =
+        `<li class="routine__item">` +
+        e.target.parentElement.innerHTML +
+        "</li>";
+      routineList.splice(i, 1, routine);
+      saveRoutines(dayNight, routineList);
+    });
+  }
 }
 
-function updateRoutineList(dayNight) {
+function showChecked() {}
+
+function updateDelBtn(dayNight) {
+  const delIcons = document.querySelectorAll(`.routine__del.${dayNight}`);
+  for (let i = 0; i < delIcons.length; i++) {
+    delIcons[i].addEventListener("click", (event) => {
+      delRoutine(i, dayNight);
+    });
+  }
+}
+
+function delRoutine(idx, dayNight) {
+  event.preventDefault();
+  let routineList = loadRoutines(dayNight);
+  routineList.splice(idx, 1);
+  saveRoutines(dayNight, routineList);
+  updateHTML(dayNight);
+}
+
+function loadRoutines(dayNight) {
+  return JSON.parse(localStorage[dayNight] || "[]");
+}
+
+function writeRoutine(dayNight, routineList) {
+  const routineField = document.querySelector(
+    `.routine__${dayNight} .routine__items`
+  );
+  routineField.innerHTML = routineList.join("");
+  routineField.scrollTop = routineField.scrollHeight;
+  updateRoutineBtn(dayNight);
+  updateDelBtn(dayNight);
+}
+
+function setInputForm(dayNight) {
   const routineInputForm = document.querySelector(
     `.routine__${dayNight} .submit-form`
   );
@@ -72,31 +106,28 @@ function updateRoutineList(dayNight) {
   );
 }
 
-function loadRoutines(dayNight) {
-  return JSON.parse(localStorage[dayNight] || "[]");
-}
-
-function saveRoutines(dayNight, routine) {
-  const routineList = loadRoutines(dayNight);
-  // console.log(dayNight, routineList);
+function submitRoutine(dayNight) {
+  event.preventDefault();
+  let routineList = loadRoutines(dayNight);
+  const routineInput = event.target.querySelector("input");
+  if (routineInput.value === "") return;
+  const routine =
+    `<li class="routine__item">` +
+    `<div class="routine__btn ${dayNight}"></div>` +
+    `<div class="routine__text">` +
+    '<img class="routine__done" src="asset/iconDone.svg">' +
+    `<span>${routineInput.value}</span>` +
+    "</div>" +
+    `<div class="routine__del ${dayNight}"></div>` +
+    "</li>";
   routineList.push(routine);
-  localStorage[dayNight] = JSON.stringify(routineList);
+  saveRoutines(dayNight, routineList);
+  writeRoutine(dayNight, routineList);
+  routineInput.value = "";
 }
 
-function writeRoutine(dayNight, routineList) {
-  if (dayNight == "both") {
-    console.log("[SUCCESS] 함께 보기 로딩");
-    writeRoutine("day", routineList);
-    writeRoutine("night", routineList);
-  } else {
-    console.log(`[SUCCESS] ${dayNight} 로딩`);
-    // console.log(`[SUCCESS] ${dayNight} ${routineList}`);
-    const routineField = document.querySelector(
-      `.routine__${dayNight} .routine__items`
-    );
-    routineField.innerHTML = routineList.join("");
-    routineField.scrollTop = routineField.scrollHeight;
-  }
+function saveRoutines(dayNight, routineList) {
+  localStorage[dayNight] = JSON.stringify(routineList);
 }
 
 main();
