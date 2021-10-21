@@ -147,6 +147,7 @@ body {
 }
 
 .nav__period {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0 0.5rem;
@@ -164,6 +165,39 @@ body {
 .nav__period .nav__icon {
     margin: 0;
     background-image: url(../asset/icon/arrowDropDown.svg);
+    cursor: pointer;
+}
+
+.nav__period .nav__dropdown {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200%;
+    background-color: yellowgreen;
+    margin-top: 1rem;
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
+    border-radius: 0.2rem;
+    z-index: 5;
+}
+
+.nav__period .nav__dropdown.--active {
+    visibility: visible;
+}
+
+.nav__period .nav__dropdown > p {
+    text-align: start;
+    padding: 1rem 1.2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav__period .nav__dropdown > p + p {
+    border-top: 1px solid rgb(241, 243, 245);
+}
+
+.nav__period .nav__dropdown > p.--active {
+    color: white;
 }
 
 .nav__more-icon {
