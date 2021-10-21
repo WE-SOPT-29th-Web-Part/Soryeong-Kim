@@ -1,19 +1,36 @@
 # Soryeong-Kim
 ![github_김소령_ver1](https://user-images.githubusercontent.com/24906022/135575080-4f4bf4ea-bac1-4cbd-ae51-677eab9ea06d.png)
 
-# 1차 세미나 과제
-
-10월 2일 세미나에서 HTML과 CSS를 배웠다.
 
 
+## 1. todo list 만들기
 
-## 투두리스트 만들기
+![view](./readmeImg/assignment1_todoList.png)
 
-무슨 이유인지 todo list 페이지를 새로 디자인했다.
+외출루틴과 취침루틴으로 나뉘어있고, 함께 보기(default)로 두 개를 한 번에 확인할 수 있다.
 
-나는 바보다.
+input에 내용을 입력하고 submit하면 내역이 추가된다. 외출과 취침 루틴에서의 꽃 색이 조금 다르다 ㅎ
 
-![view](./seminar_1st/asset/viewFinished.png)
+이 내용들은 모두 localStorage에 저장되어 창을 껐다 켜도 이 상태가 유지된다.
 
-과제를 하다가 리디자인할 필요 없이 세미나 잘 들었는지 확인용으로만 내는 거라는 말에 퍼블리싱 70%만 하고 제출했다.
+일을 완료하고 난 후에 꽃 아이콘을 누르면 완료를 보여주는 줄기가 생성된다.
 
+휴지통을 누르면 해당 내역이 사라진다.
+
+
+
+## 2. velog 클론 코딩
+
+![view](./readmeImg/assignment2_velog.png)
+
+velog by ryeong 부분은 다소 킹밧는 애니메이션으로 통통 튀게 해보았다.
+
+`이번주`  옆 아이콘을 클릭하면 드롭다운 메뉴가 나오고, 이 부분은 `transition`과 `transform: scale()`로 애니메이션을 만들어보았다.
+
+카드에 마우스를 올리면 위로 솟는 애니메이션이 나오고
+
+카드를 클릭하면 모달창으로 더 크게 확인할 수 있게 하였다.
+
+우측 상단 `새 글 작성`을 누르면 태그를 입력할 수 있는 화면이 나오는데 모습은 아래와 같다.
+
+![view](./readmeImg/assignment2_velog2.png)

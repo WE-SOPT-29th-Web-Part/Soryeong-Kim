@@ -64,8 +64,6 @@ function updateRoutineBtn(dayNight) {
   }
 }
 
-function showChecked() {}
-
 function updateDelBtn(dayNight) {
   const delIcons = document.querySelectorAll(`.routine__del.${dayNight}`);
   for (let i = 0; i < delIcons.length; i++) {
