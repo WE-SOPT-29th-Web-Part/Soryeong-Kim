@@ -8,7 +8,7 @@
     font-family: "NotoSans";
     font-weight: normal;
     font-style: normal;
-    src: url("./style/font/NotoSansKR-Regular.otf") format("truetype");
+    src: url("./font/NotoSansKR-Regular.otf") format("truetype");
 }
 
 ::-webkit-scrollbar {
