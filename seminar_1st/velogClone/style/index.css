@@ -169,8 +169,8 @@ body {
 }
 
 .nav__period .nav__dropdown {
-    transform-origin: top;
-    transform: scale(1, 0);
+    transform-origin: top right;
+    transform: scale(0);
     position: absolute;
     top: 100%;
     right: 0;
