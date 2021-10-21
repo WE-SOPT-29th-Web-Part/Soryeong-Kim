@@ -37,6 +37,11 @@ body.--modal-Active {
     overflow: hidden;
 }
 
+a {
+    color: rgb(52, 58, 63);
+    text-decoration: none;
+}
+
 .header {
     width: 1376px;
     height: 4rem;
@@ -80,11 +85,19 @@ body.--modal-Active {
     border: 0.1rem solid rgb(52, 58, 63);
     border-radius: 1rem;
     background-color: white;
-    height: 2.4rem;
+    height: 3rem;
+    padding: 0 1rem;
     text-align: center;
     font-size: 1.3rem;
     font-weight: bold;
-    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.header__posting-icon:hover {
+    background-color: yellowgreen;
+    color: white;
+    border: 0.1rem solid yellowgreen
 }
 
 .header__user-section {
