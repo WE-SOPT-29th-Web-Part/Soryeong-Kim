@@ -169,7 +169,8 @@ body {
 }
 
 .nav__period .nav__dropdown {
-    visibility: hidden;
+    transform-origin: top;
+    transform: scale(1, 0);
     position: absolute;
     top: 100%;
     right: 0;
@@ -179,10 +180,11 @@ body {
     box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
     border-radius: 0.2rem;
     z-index: 5;
+    transition: transform 0.5s ease-out;
 }
 
 .nav__period .nav__dropdown.--active {
-    visibility: visible;
+    transform: scale(1);
 }
 
 .nav__period .nav__dropdown > p {
