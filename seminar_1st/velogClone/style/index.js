@@ -31,3 +31,28 @@ postCards.forEach((card, i) => {
     });
   });
 });
+
+const arrows = document.querySelectorAll(".slider__arrow");
+const sliderWrapper = document.querySelector(".slider__wrapper");
+const slidePosts = document.querySelectorAll(".slider__wrapper .post");
+
+let counter = 0;
+const postWidth = slidePosts[0].offsetWidth;
+sliderWrapper.style.transform = "translateX(" + -postWidth * counter + "px)";
+
+const prevBtn = document.querySelector(".slider__arrow.--left");
+const nextBtn = document.querySelector(".slider__arrow.--right");
+
+prevBtn.addEventListener("click", () => {
+  if (counter <= 0) return;
+  sliderWrapper.style.transition = "transform 0.3s ease-in-out";
+  counter--;
+  sliderWrapper.style.transform = "translateX(" + -postWidth * counter + "px)";
+});
+
+nextBtn.addEventListener("click", () => {
+  if (counter >= slidePosts.length - 4) return;
+  sliderWrapper.style.transition = "transform 0.3s ease-in-out";
+  counter++;
+  sliderWrapper.style.transform = "translateX(" + -postWidth * counter + "px)";
+});

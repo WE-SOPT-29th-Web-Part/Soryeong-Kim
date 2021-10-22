@@ -126,6 +126,7 @@ a {
     display: flex;
     flex-direction: column;
     width: 1375px;
+    position: relative;
 }
 
 .nav {
@@ -232,6 +233,37 @@ a {
     background-image: url(../asset/icon/moreIcon.svg);
 }
 
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider__arrow {
+    background-image: url(../asset/icon/arrowLeft.svg);
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 20rem;
+    left: -5rem;
+    z-index: 2;
+}
+
+.slider__arrow.--right {
+    transform: scaleX(-1);
+    left: initial;
+    right: -5rem;
+}
+
+.slider__wrapper {
+    display: flex;
+}
+
+.slider__wrapper .post {
+    position: relative;
+    min-width: 30rem;
+}
+
 .posts {
     margin: 2rem -1rem 0 -1rem;
     display: grid;
@@ -254,6 +286,7 @@ a {
     box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
     margin: 1rem;
     transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+    cursor: pointer;
 }
 
 .post:hover {
