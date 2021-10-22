@@ -56,3 +56,28 @@ nextBtn.addEventListener("click", () => {
   counter++;
   sliderWrapper.style.transform = "translateX(" + -postWidth * counter + "px)";
 });
+
+const themeToggle = document.querySelector(".header__theme__toggle");
+const isUserColorTheme = localStorage.getItem("color-theme");
+const isOsColorTheme = window.matchMedia("(prefers-color-scheme: light)")
+  .matches
+  ? "light"
+  : "dark";
+
+const getUserTheme = () =>
+  isUserColorTheme ? isUserColorTheme : isOsColorTheme;
+
+window.onload = function () {
+  if (isUserColorTheme === "dark") themeToggle.setAttribute("checked", true);
+  document.documentElement.setAttribute("color-theme", isUserColorTheme);
+};
+
+themeToggle.addEventListener("click", (e) => {
+  if (e.target.checked) {
+    localStorage.setItem("color-theme", "dark");
+    document.documentElement.setAttribute("color-theme", "dark");
+  } else {
+    localStorage.setItem("color-theme", "light");
+    document.documentElement.setAttribute("color-theme", "light");
+  }
+});
