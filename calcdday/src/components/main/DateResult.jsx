@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { DPlusDay, DMinusDay } from '..';
+import { Result } from '..';
 
 const DateResult = ({ year, month, date }) => {
   return (
     <Wrapper>
-      <DPlusDay year={year} month={month} date={date} />
-      <DMinusDay year={year} month={month} date={date} />
+      {['+', '-'].map((sign, idx) => (
+        <Result key={`dateResult-${idx}`} sign={sign} year={year} month={month} date={date} />
+      ))}
     </Wrapper>
   );
 };
