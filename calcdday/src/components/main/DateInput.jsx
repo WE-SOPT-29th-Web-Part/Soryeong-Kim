@@ -18,9 +18,9 @@ const DateInput = ({ year, month, date, setYear, setMonth, setDate }) => {
     <Wrapper>
       <ButtonToday onClick={returnToday}>오늘</ButtonToday>
       <ResultSection>
-        <Input type="text" value={year} onChange={e => changeDate(e, setYear)} />년
-        <Input type="text" value={month} onChange={e => changeDate(e, setMonth)} />월
-        <Input type="text" value={date} onChange={e => changeDate(e, setDate)} />
+        <Input type="number" value={year} onChange={e => changeDate(e, setYear)} />년
+        <Input type="number" value={month} onChange={e => changeDate(e, setMonth)} />월
+        <Input type="number" value={date} onChange={e => changeDate(e, setDate)} />
         일을 기준으로
       </ResultSection>
     </Wrapper>
