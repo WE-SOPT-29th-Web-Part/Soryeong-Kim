@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const DateInput = ({ year, month, date, setYear, setMonth, setDate }) => {
   const changeDate = (e, setState) => {
-    // console.log(e.target);
     setState(e.target.value);
   };
 
