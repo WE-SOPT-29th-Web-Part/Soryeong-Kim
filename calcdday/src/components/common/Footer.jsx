@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
 
 const Footer = () => {
-  return <div>Footer</div>;
+  return <Title>SOPT WEB 29th soryeongk</Title>;
 };
 
 export default Footer;
+
+const Title = styled.h2`
+  font-size: ${({ theme }) => theme.fontSizes.xxl};
+  font-weight: bold;
+`;
