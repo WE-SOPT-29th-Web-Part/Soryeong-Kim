@@ -1,7 +1,14 @@
+import { Header, MainWrapper, Footer } from "./components";
 import "./App.css";
 
 function App() {
-  return <div>hi</div>;
+  return (
+    <>
+      <Header />
+      <MainWrapper />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
