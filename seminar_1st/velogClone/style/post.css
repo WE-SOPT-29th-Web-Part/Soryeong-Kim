@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    font-weight: normal;
+    font-style: normal;
+    src: url("./font/NotoSansKR-Regular.otf") format("truetype");
+}
+
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 50rem;
+}
+
+.tag-field {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-field__tag {
+    display: inline-block;
+    background-color: yellowgreen;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.tag-form__input {
+    border: 0.1rem solid yellowgreen;
+}
