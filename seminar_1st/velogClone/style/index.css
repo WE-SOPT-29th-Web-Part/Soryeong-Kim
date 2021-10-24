@@ -142,7 +142,8 @@ body {
 }
 
 .nav__recent .nav__icon {
-    background-image: url(../asset/icon/recent.svg);
+    background-image: url(../asset/post/user.png);
+    background-size: contain;
 }
 
 .nav__period {
@@ -241,6 +242,7 @@ body {
 }
 
 .post__writer-info {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 1rem;

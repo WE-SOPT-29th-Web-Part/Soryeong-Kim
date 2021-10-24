@@ -5,76 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>령이의 할 일 목록</title>
-    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/index.css" />
+    <script src="style/index.js" defer></script>
 </head>
 <body>
     <header class="header">
         <h1 class="header__title">령이의 하루 루틴 톺아보기</h1>
         <nav class="header__btns">
-            <div class="header__btn">외출루틴</div>
-            <div class="header__btn">취침루틴</div>
-            <div class="header__btn --focused">함께보기</div>
+            <button class="btn__day">외출루틴</button>
+            <button class="btn__night">취침루틴</button>
+            <button class="btn__both --focused">함께보기</button>
         </nav>
     </header>
     <main class="routine">
-        <section class="routine__day">
+        <section class="routine__day --focused">
             <div class="routine__list">
                 <header class="routine__title">
                     <div class="routine__icon"></div>
                     <h3 class="routine__title-text">령이의 외출 루틴</h3>
                     <div class="routine__icon"></div>
                 </header>
-                <ul class="routine__items">
-                    <li class="routine__item --done">
-                        <div class="routine__btn"></div>
-                        <!-- <div class="routine__done"></div> -->
-                        <span class="routine__text">물마시기</span>
-                    </li>
-                    <li class="routine__item">
-                        <div class="routine__btn"></div>
-                        <!-- <div class="routine__done"></div> -->
-                        <span class="routine__text">씻기</span>
-                    </li>
-                    <li class="routine__item">
-                        <div class="routine__btn"></div>
-                        <!-- <div class="routine__done"></div> -->
-                        <span class="routine__text">마스크팩</span>
-                    </li>
-                </ul>
+                <ul class="routine__items"></ul>
             </div>
             <form class="submit-form">
-                <div class="submit-form__icon"></div>
-                <input type="text">
+                <input class="submit-form__input" type="text">
                 <div class="submit-form__btn">추가</div>
             </form>
         </section>
-        <section class="routine__night">
+        <section class="routine__night --focused">
             <div class="routine__list">
                 <header class="routine__title">
                     <div class="routine__icon"></div>
                     <h3 class="routine__title-text">령이의 취침 루틴</h3>
                     <div class="routine__icon"></div>
                 </header>
-                <ul class="routine__items">
-                    <li class="routine__item --done">
-                        <div class="routine__btn"></div>
-                        <!-- <div class="routine__done"></div> -->
-                        <span class="routine__text">물마시기</span>
-                    </li>
-                    <li class="routine__item">
-                        <div class="routine__btn"></div>
-                        <!-- <div class="routine__done"></div> -->
-                        <span class="routine__text">씻기</span>
-                    </li>
-                    <li class="routine__item">
-                        <div class="routine__btn"></div>
-                        <!-- <div class="routine__done"></div> -->
-                        <span class="routine__text">마스크팩</span>
-                    </li>
-                </ul>
+                <ul class="routine__items"></ul>
             </div>
             <form class="submit-form">
-                <div class="submit-form__icon"></div>
                 <input class="submit-form__input" type="text">
                 <div class="submit-form__btn">추가</div>
             </form>
