@@ -30,16 +30,16 @@ const Result = ({ sign, year, month, date }) => {
   return (
     <Wrapper>
       {sign === '+' ? (
-        <>
+        <InputWrapper>
           <Input type="number" value={dayCount} onChange={handleChange} />
           일째 되는 날은?
-        </>
+        </InputWrapper>
       ) : (
-        <>
+        <InputWrapper>
           D-
           <Input value={dayCount} type="number" onChange={handleChange} />
           는?
-        </>
+        </InputWrapper>
       )}
       <ResultDate>{resultDate}</ResultDate>
     </Wrapper>
@@ -57,10 +57,16 @@ const Wrapper = styled.section`
   }
 `;
 
+const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Input = styled.input`
   width: 5rem;
 `;
 
 const ResultDate = styled.h2`
   margin-left: auto;
+  font-weight: bold;
 `;

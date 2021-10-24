@@ -15,13 +15,15 @@ const DateInput = ({ year, month, date, setYear, setMonth, setDate }) => {
 
   return (
     <Wrapper>
-      <ButtonToday onClick={returnToday}>오늘</ButtonToday>
-      <>
+      <ButtonToday onClick={returnToday}>
+        오늘({year}.{month}.{date})로 바꾸기
+      </ButtonToday>
+      <InputWrapper>
         <Input type="number" value={year} onChange={e => changeDate(e, setYear)} />년
         <Input type="number" value={month} onChange={e => changeDate(e, setMonth)} />월
         <Input type="number" value={date} onChange={e => changeDate(e, setDate)} />
         일을 기준으로
-      </>
+      </InputWrapper>
     </Wrapper>
   );
 };
@@ -38,9 +40,32 @@ const Wrapper = styled.section`
   height: 10rem;
 `;
 
+const InputWrapper = styled.section`
+  display: flex;
+  align-items: center;
+`;
+
 const ButtonToday = styled.button`
-  border: 0.1rem solid ${({ theme }) => theme.colors.black};
-  width: 3rem;
+  border: 0.1rem solid ${({ theme }) => theme.colors.orange};
+  padding: 0.3rem 0.5rem;
+  color: ${({ theme }) => theme.colors.orange};
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.1;
+    background-color: ${({ theme }) => theme.colors.orange};
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.orange};
+    color: ${({ theme }) => theme.colors.white};
+  }
 `;
 
 const Input = styled.input`

@@ -1,4 +1,4 @@
-const calcRem = (size) => `${size / 16}rem`;
+const calcRem = size => `${size / 16}rem`;
 const fontSizes = {
   small: calcRem(14),
   base: calcRem(16),
@@ -9,21 +9,21 @@ const fontSizes = {
 };
 
 const colors = {
-  gray1: "#FAFAFA",
-  gray2: "#F3F3F3",
-  gray3: "#D4D4D4",
-  black: "#3E3E3E",
-  white: "#FFFFFF",
-  borderGray: "#929292",
-  progressBeige: "#F8EFDD",
+  gray1: '#FAFAFA',
+  gray2: '#F3F3F3',
+  gray3: '#D4D4D4',
+  black: '#3E3E3E',
+  white: '#FFFFFF',
+  borderGray: '#929292',
+  orange: '#F7630C',
 };
 
 const deviceSizes = {
-  mobileS: "320px",
-  mobileM: "375px",
-  mobileL: "450px",
-  tablet: "768px",
-  tabletL: "1024px",
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '450px',
+  tablet: '768px',
+  tabletL: '1024px',
 };
 
 const device = {
