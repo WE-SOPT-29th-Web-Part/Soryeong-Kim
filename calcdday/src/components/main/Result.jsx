@@ -6,8 +6,9 @@ const Result = ({ sign, year, month, date }) => {
   const [resultDate, setResultDate] = useState(`${year}년 ${month}월 ${date}일`);
 
   const handleChange = e => {
-    setDayCount(e.target.value);
-    returnResult(e.target.value);
+    const inputValue = e.target.value;
+    setDayCount(inputValue);
+    returnResult(inputValue);
   };
 
   const returnResult = value => {

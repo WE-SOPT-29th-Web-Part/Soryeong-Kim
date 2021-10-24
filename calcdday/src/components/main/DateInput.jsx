@@ -16,12 +16,12 @@ const DateInput = ({ year, month, date, setYear, setMonth, setDate }) => {
   return (
     <Wrapper>
       <ButtonToday onClick={returnToday}>오늘</ButtonToday>
-      <ResultSection>
+      <>
         <Input type="number" value={year} onChange={e => changeDate(e, setYear)} />년
         <Input type="number" value={month} onChange={e => changeDate(e, setMonth)} />월
         <Input type="number" value={date} onChange={e => changeDate(e, setDate)} />
         일을 기준으로
-      </ResultSection>
+      </>
     </Wrapper>
   );
 };
@@ -42,8 +42,6 @@ const ButtonToday = styled.button`
   border: 0.1rem solid ${({ theme }) => theme.colors.black};
   width: 3rem;
 `;
-
-const ResultSection = styled.section``;
 
 const Input = styled.input`
   width: 3.5rem;
