@@ -1,7 +1,21 @@
 # Soryeong-Kim
+
 ![github_김소령_ver1](https://user-images.githubusercontent.com/24906022/135575080-4f4bf4ea-bac1-4cbd-ae51-677eab9ea06d.png)
 
+## 0. 나만의 commit 규칙 with Emoji
 
+|       commit type       |             Emoji              |     situation      |
+| :---------------------: | :----------------------------: | :----------------: |
+|          init           | :construction:`:construction:` |   작업 세팅 커밋   |
+|          feat           |         :tada:`:tada:`         |     기능 추가      |
+|           fix           |          :bug:`:bug:`          |     버그 수정      |
+|           css           |    :nail_care:`:nail_care:`    |  css 스타일 수정   |
+|          lint           |       :shirt: `:shirt:`        |   코드 lint 수정   |
+|           doc           |         :memo:`:memo:`         |     문서 수정      |
+|          clean          |        :truck:`:truck:`        | 폴더 및 파일 정리  |
+|        refactor         |       :hammer:`:hammer:`       |      리팩토링      |
+| Bad code / need improv. |       :hankey:`:hankey:`       | 개선이 필요한 코드 |
+|   code review approve   |     :ok_hand:`:ok_hand:`​      |   코드 리뷰 수용   |
 
 ## 1. todo list 만들기
 
@@ -17,15 +31,13 @@ input에 내용을 입력하고 submit하면 내역이 추가된다. 외출과 �
 
 휴지통을 누르면 해당 내역이 사라진다.
 
-
-
 ## 2. velog 클론 코딩
 
 ![view](./readmeImg/assignment2_velog.png)
 
 velog by ryeong 부분은 다소 킹밧는 애니메이션으로 통통 튀게 해보았다.
 
-`이번주`  옆 아이콘을 클릭하면 드롭다운 메뉴가 나오고, 이 부분은 `transition`과 `transform: scale()`로 애니메이션을 만들어보았다.
+`이번주` 옆 아이콘을 클릭하면 드롭다운 메뉴가 나오고, 이 부분은 `transition`과 `transform: scale()`로 애니메이션을 만들어보았다.
 
 카드에 마우스를 올리면 위로 솟는 애니메이션이 나오고
 
