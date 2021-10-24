@@ -7,6 +7,7 @@ const Result = ({ sign, year, month, date }) => {
 
   const handleChange = e => {
     const inputValue = e.target.value;
+    if (inputValue < 0) return;
     setDayCount(inputValue);
     returnResult(inputValue);
   };

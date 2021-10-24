@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 const DateInput = ({ year, month, date, setYear, setMonth, setDate }) => {
   const changeDate = (e, setState) => {
+    if (e.target.value < 0) return;
     setState(e.target.value);
   };
+  const today = new Date();
 
   const returnToday = () => {
-    const today = new Date();
     setYear(today.getFullYear());
     setMonth(today.getMonth() + 1);
     setDate(today.getDate());
@@ -16,7 +17,7 @@ const DateInput = ({ year, month, date, setYear, setMonth, setDate }) => {
   return (
     <Wrapper>
       <ButtonToday onClick={returnToday}>
-        오늘({year}.{month}.{date})로 바꾸기
+        오늘({today.getFullYear()}.{today.getMonth() + 1}.{today.getDate()})로 바꾸기
       </ButtonToday>
       <InputWrapper>
         <Input type="number" value={year} onChange={e => changeDate(e, setYear)} />년
