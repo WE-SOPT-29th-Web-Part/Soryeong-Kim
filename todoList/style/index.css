@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    font-weight: normal;
+    font-style: normal;
+    src: url("./font/NotoSansKR-Regular.otf") format("truetype");
+}
+
+html {
+    color: #333333;
+    font-family: "NotoSans";
+    font-size: 10px;
+    letter-spacing: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    padding: 3rem 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.header__title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.header__btns {
+    margin-left: 1rem;
+    display: flex;
+}
+
+.header__btns button {
+    border-radius: 2.5rem;
+    border: 0.3rem solid #66bcbc;
+    background-color: white;
+    text-align: center;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.6rem;
+    letter-spacing: 0.32rem;
+    margin-left: 2.5rem;
+    cursor: pointer;
+}
+
+.header__btns button:hover,
+.header__btns button.--focused,
+.submit-form__btn:hover {
+    background-color: #66bcbc;
+    color: white;
+}
+
+.routine {
+    margin: 10rem;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.routine__day,
+.routine__night {
+    transition: all 0.5s ease;
+    visibility: hidden;
+    width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.routine__day.--focused,
+.routine__night.--focused {
+    width: 100%;
+    visibility: visible;
+}
+
+.routine__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8.7rem;
+}
+.routine__icon {
+    width: 2.6rem;
+    height: 2.8rem;
+}
+.routine__day .routine__icon {
+    background-image: url(../asset/iconFlowerDay.svg);
+}
+
+.routine__night .routine__icon {
+    background-image: url(../asset/iconFlowernight.svg);
+}
+
+.routine__title-text {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.4rem;
+    margin: 0 1rem;
+}
+
+.routine__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.routine__items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 32rem;
+    overflow-y: scroll;
+}
+.routine__items::-webkit-scrollbar {
+    display: none;
+}
+
+.routine__item {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.routine__btn {
+    background-image: url(../asset/iconFlowerOff.svg);
+    width: 2.6rem;
+    height: 2.8rem;
+    cursor: pointer;
+}
+
+.routine__btn.day:hover,
+.routine__btn.--done.day {
+    background-image: url(../asset/iconFlowerDay.svg);
+}
+
+.routine__btn.night:hover,
+.routine__btn.--done.night {
+    background-image: url(../asset/iconFlowernight.svg);
+}
+
+.routine__text {
+    border-bottom: solid 0.1rem #dddddd;
+    width: 45rem;
+    text-align: start;
+    vertical-align: middle;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    padding-bottom: 0.5rem;
+}
+
+.routine__done {
+    display: none;
+}
+
+.routine__done.--done {
+    display: initial;
+    position: absolute;
+    width: 45rem;
+    height: 2.3rem;
+}
+
+.routine__text span {
+    padding-left: 1rem;
+}
+
+.routine__del {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(../asset/iconDel.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.submit-form {
+    width: 50rem;
+    height: 7rem;
+    border: solid 0.3rem #66bcbc;
+    border-radius: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.submit-form__input {
+    margin-left: 2rem;
+    padding: 1rem;
+    width: 80%;
+    height: 100%;
+    border: none;
+    font-size: 2rem;
+}
+
+.submit-form__btn {
+    border: #66bcbc solid 0.3rem;
+    border-radius: 2.5rem;
+    width: 8rem;
+    height: 4rem;
+    text-align: center;
+    margin-right: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer {
+    margin: 0 0 3rem 3rem;
+    /* margin: 6rem 0 3rem 3rem; */
+    font-size: 3rem;
+    font-weight: bold;
+}
