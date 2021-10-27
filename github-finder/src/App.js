@@ -1,10 +1,10 @@
-import { Header, MainWrapper, Footer } from "./components";
+import { HeaderWrapper, MainWrapper } from "./components";
+
 function App() {
   return (
     <>
-      <Header />
+      <HeaderWrapper />
       <MainWrapper />
-      <Footer />
     </>
   );
 }
