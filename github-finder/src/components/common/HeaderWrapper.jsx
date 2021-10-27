@@ -10,4 +10,5 @@ export default HeaderWrapper;
 const Header = styled.header`
   font-size: ${({ theme }) => theme.fontSizes.titleSize};
   font-weight: bold;
+  text-align: center;
 `;
