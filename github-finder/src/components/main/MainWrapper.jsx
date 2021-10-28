@@ -8,16 +8,16 @@ const MainWrapper = () => {
 
   return (
     <>
-      <SearchForm
-        setData={setData}
-        setIsFetched={setIsFetched}
-        setIsPending={setIsPending}
-      />
       <Result
         data={data}
         isFetched={isFetched}
         setIsFetched={setIsFetched}
         isPending={isPending}
+      />
+      <SearchForm
+        setData={setData}
+        setIsFetched={setIsFetched}
+        setIsPending={setIsPending}
       />
     </>
   );

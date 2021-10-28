@@ -25,10 +25,10 @@ const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
     } catch (err) {
       setData(Error);
     }
-    setIsPending(false);
-    setInputValue("");
-    setIsFetched(true);
     setShowHistory(false);
+    setInputValue("");
+    setIsPending(false);
+    setIsFetched(true);
   };
 
   return (

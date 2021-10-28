@@ -25,15 +25,17 @@ const SearchHistory = ({
     setIsFetched(true);
     setShowHistory(false);
   };
-  return (
-    <History showHistory={showHistory}>
-      {historyArray.map((history, idx) => (
-        <Text key={`history-${idx}`} onClick={() => handleSubmit(history)}>
-          {history}
-        </Text>
-      ))}
-    </History>
-  );
+  if (historyArray.length)
+    return (
+      <History showHistory={showHistory}>
+        {historyArray.map((history, idx) => (
+          <Text key={`history-${idx}`} onClick={() => handleSubmit(history)}>
+            {history}
+          </Text>
+        ))}
+      </History>
+    );
+  return <></>;
 };
 
 export default SearchHistory;

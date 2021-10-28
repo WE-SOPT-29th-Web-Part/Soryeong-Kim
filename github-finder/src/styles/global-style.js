@@ -54,11 +54,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    padding: 5rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: ${({ theme }) => theme.colors.skyblue};
     z-index: -1;
   }
