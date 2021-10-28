@@ -10,7 +10,7 @@ const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
   const saveHistory = (value) => {
     const history = JSON.parse(localStorage["searchedId"] || "[]");
     history.push(value);
-    localStorage["searchedId"] = JSON.stringify(history);
+    localStorage["searchedId"] = JSON.stringify(Array.from(new Set(history)));
   };
 
   const handleSubmit = async (e) => {

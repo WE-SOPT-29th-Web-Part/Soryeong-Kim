@@ -11,7 +11,6 @@ const SearchHistory = ({
 }) => {
   const historyArray = JSON.parse(localStorage["searchedId"] || "[]");
   const handleSubmit = async (history) => {
-    console.log(`history`, history);
     try {
       setIsPending(true);
       const response = await axios.get(
