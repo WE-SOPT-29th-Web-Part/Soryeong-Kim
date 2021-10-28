@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const SearchForm = ({ setData, setIsActive }) => {
+const SearchForm = ({ setData, setIsActive, setIsPending }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsPending(true);
       const response = await axios.get(
         `https://api.github.com/users/${inputValue}`
       );
       setData(response.data);
     } catch (err) {
-      console.log(`err`, err);
       setData(Error);
     }
+    setIsPending(false);
     setInputValue("");
     setIsActive(true);
   };
@@ -47,7 +48,7 @@ const IdInput = styled.input`
   width: 48rem;
   height: 2.5rem;
   font-size: ${({ theme }) => theme.fontSizes.base};
-  border: 0.2rem solid ${({ theme }) => theme.colors.borderGray};
+  border: 0.2rem solid ${({ theme }) => theme.colors.white};
   border-radius: 5px;
 `;
 

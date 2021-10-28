@@ -59,6 +59,14 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #b9e2f5;
+    z-index: -1;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 

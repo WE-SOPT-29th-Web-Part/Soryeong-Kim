@@ -1,20 +1,26 @@
 import React, { useState } from "react";
-import { SearchResult, SearchForm } from "..";
+import { SearchForm, Result } from "..";
 
 const MainWrapper = () => {
   const [data, setData] = useState("");
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
+  const [isPending, setIsPending] = useState(false);
 
   return (
     <>
-      <SearchForm setData={setData} setIsActive={setIsActive} />
-      {data && (
-        <SearchResult
+      <SearchForm
+        setData={setData}
+        setIsActive={setIsActive}
+        setIsPending={setIsPending}
+      />
+      {
+        <Result
           data={data}
           isActive={isActive}
           setIsActive={setIsActive}
+          isPending={isPending}
         />
-      )}
+      }
     </>
   );
 };

@@ -22,9 +22,10 @@ const SearchResult = ({ data, isActive, setIsActive }) => {
 export default SearchResult;
 
 const Wrapper = styled.main`
-  display: ${(props) => (props.isActive ? "flex" : "none")};
+  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
   position: relative;
   margin-top: 2rem;
+  display: flex;
   align-items: flex-start;
 `;
 
@@ -38,7 +39,11 @@ const Profile = styled.img`
 const CloseButton = styled.button`
   position: absolute;
   right: -2rem;
-  color: #f00;
+  padding: 0.1rem 0.3rem;
+  border: 0.1rem solid ${({ theme }) => theme.colors.orange};
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.orange};
+  color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: bold;
 `;

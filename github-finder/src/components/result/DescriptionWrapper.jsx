@@ -5,7 +5,7 @@ const DescriptionWrapper = ({ data }) => {
   if (data.isError)
     return (
       <Description>
-        <UserBio style={{ color: "#F7630C" }}>404 Not Found</UserBio>
+        <UserBio style={{ color: "#0097e6" }}>404 Not Found</UserBio>
       </Description>
     );
   return (
@@ -22,14 +22,14 @@ const DescriptionWrapper = ({ data }) => {
       </ButtonWrapper>
       <GithubInfo>
         <InfoText>
-          레포 <span style={{ color: "#F7630C" }}>{data.public_repos}</span>개
+          레포 <span style={{ color: "#0097e6" }}>{data.public_repos}</span>개
         </InfoText>
         <InfoText>
-          <span style={{ color: "#F7630C" }}>{data.followers}</span>명이 팔로잉
+          <span style={{ color: "#0097e6" }}>{data.followers}</span>명이 팔로잉
           중
         </InfoText>
         <InfoText>
-          <span style={{ color: "#F7630C" }}>{data.following}</span>명을 팔로잉
+          <span style={{ color: "#0097e6" }}>{data.following}</span>명을 팔로잉
           중
         </InfoText>
       </GithubInfo>
@@ -45,7 +45,8 @@ const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 0.1rem solid ${({ theme }) => theme.colors.orange};
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 0.1rem solid ${({ theme }) => theme.colors.blue};
   border-radius: 5px;
   padding: 1rem;
 `;
@@ -74,15 +75,15 @@ const VisitButton = styled.a`
   padding: 0.3rem 0;
   font-size: ${({ theme }) => theme.fontSizes.base};
   font-weight: bold;
-  border: 0.1rem solid ${({ theme }) => theme.colors.orange};
+  border: 0.1rem solid ${({ theme }) => theme.colors.blue};
   border-radius: 15px;
-  color: ${({ theme }) => theme.colors.orange};
+  color: ${({ theme }) => theme.colors.blue};
   width: 10rem;
   text-align: center;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.orange};
+    background-color: ${({ theme }) => theme.colors.blue};
     color: ${({ theme }) => theme.colors.white};
   }
 `;
