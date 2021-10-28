@@ -7,10 +7,15 @@ const SearchForm = ({ setData }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.get(
-      `https://api.github.com/users/${inputValue}`
-    );
-    setData(response.data);
+    try {
+      const response = await axios.get(
+        `https://api.github.com/users/${inputValue}`
+      );
+      setData(response.data);
+    } catch (err) {
+      console.log(`err`, err);
+      setData(Error);
+    }
     setInputValue("");
   };
 
@@ -38,7 +43,7 @@ const Wrapper = styled.form`
 `;
 
 const IdInput = styled.input`
-  width: 100%;
+  width: 48rem;
   height: 2.5rem;
   font-size: ${({ theme }) => theme.fontSizes.base};
   border: 0.2rem solid ${({ theme }) => theme.colors.borderGray};

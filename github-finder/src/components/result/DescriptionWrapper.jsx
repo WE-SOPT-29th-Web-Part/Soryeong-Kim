@@ -1,47 +1,42 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchResult = ({ data }) => {
-  console.log(`data`, data);
-  return (
-    <Wrapper>
-      <Profile src={data.avatar_url} />
+const DescriptionWrapper = ({ data }) => {
+  if (data.isError)
+    return (
       <Description>
-        {data.bio && <UserBio>{data.bio}</UserBio>}
-        <UserInfo>
-          <InfoText>{data.name}</InfoText>
-          <InfoText>{data.login}</InfoText>
-        </UserInfo>
-        <ButtonWrapper>
-          <VisitButton href={data.html_url}>Github 구경하기</VisitButton>
-          {data.blog && (
-            <VisitButton href={data.blog}>블로그도 있네요!</VisitButton>
-          )}
-        </ButtonWrapper>
-        <GithubInfo>
-          <InfoText>레포 {data.public_repos}개</InfoText>
-          <InfoText>{data.followers}명이 팔로잉 중</InfoText>
-          <InfoText>{data.following}명을 팔로잉 중</InfoText>
-        </GithubInfo>
+        <UserBio style={{ color: "#F7630C" }}>404 Not Found</UserBio>
       </Description>
-    </Wrapper>
+    );
+  return (
+    <Description>
+      {data.bio && <UserBio>{data.bio}</UserBio>}
+      <UserInfo>
+        <InfoText>{data.name}</InfoText>
+        <InfoText>{data.login}</InfoText>
+      </UserInfo>
+      <ButtonWrapper>
+        <VisitButton href={data.html_url}>Github 구경하기</VisitButton>
+        {data.blog && (
+          <VisitButton href={data.blog}>블로그도 있네요!</VisitButton>
+        )}
+      </ButtonWrapper>
+      <GithubInfo>
+        <InfoText style={{ color: "#F7630C" }}>
+          레포 {data.public_repos}개
+        </InfoText>
+        <InfoText style={{ color: "#F7630C" }}>
+          {data.followers}명이 팔로잉 중
+        </InfoText>
+        <InfoText style={{ color: "#F7630C" }}>
+          {data.following}명을 팔로잉 중
+        </InfoText>
+      </GithubInfo>
+    </Description>
   );
 };
 
-export default SearchResult;
-
-const Wrapper = styled.main`
-  margin-top: 2rem;
-  display: flex;
-  align-items: flex-start;
-`;
-
-const Profile = styled.img`
-  width: 15rem;
-  height: 15rem;
-  margin-right: 3rem;
-  border-radius: 50%;
-`;
+export default DescriptionWrapper;
 
 const Description = styled.div`
   width: 30rem;

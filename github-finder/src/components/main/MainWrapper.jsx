@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { SearchForm, SearchResult } from "..";
+import { SearchResult, SearchForm } from "..";
 
 const MainWrapper = () => {
   const [data, setData] = useState("");
-
   return (
     <>
       <SearchForm setData={setData} />
