@@ -1,26 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SearchForm, Result } from "..";
 
 const MainWrapper = () => {
   const [data, setData] = useState("");
-  const [isActive, setIsActive] = useState(false);
+  const [isFetched, setIsFetched] = useState(false);
   const [isPending, setIsPending] = useState(false);
 
   return (
     <>
       <SearchForm
         setData={setData}
-        setIsActive={setIsActive}
+        setIsFetched={setIsFetched}
         setIsPending={setIsPending}
       />
-      {
-        <Result
-          data={data}
-          isActive={isActive}
-          setIsActive={setIsActive}
-          isPending={isPending}
-        />
-      }
+      <Result
+        data={data}
+        isFetched={isFetched}
+        setIsFetched={setIsFetched}
+        isPending={isPending}
+      />
     </>
   );
 };

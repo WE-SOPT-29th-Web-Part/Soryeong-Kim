@@ -17,6 +17,7 @@ const colors = {
   borderGray: "#929292",
   orange: "#F7630C",
   blue: "#0097e6",
+  skyblue: "#b9e2f5",
 };
 
 const deviceSizes = {

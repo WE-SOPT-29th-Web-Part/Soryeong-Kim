@@ -4,7 +4,7 @@ import styled from "styled-components";
 const HeaderWrapper = () => {
   return (
     <Button>
-      <Text>깃허브 서핑</Text>
+      <Text>🏄‍♀️깃허브 서핑🏄‍♂️</Text>
     </Button>
   );
 };
@@ -12,7 +12,7 @@ const HeaderWrapper = () => {
 export default HeaderWrapper;
 
 const Button = styled.div`
-  width: 23rem;
+  width: 30rem;
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
   padding: 12px 30px;
@@ -24,9 +24,9 @@ const Button = styled.div`
   &:before {
     content: "";
     position: absolute;
-    width: 450px;
-    height: 450px;
-    border-radius: 120px;
+    width: 500px;
+    height: 500px;
+    border-radius: 150px;
     background-color: ${({ theme }) => theme.colors.blue};
     top: 50px;
     left: 50%;

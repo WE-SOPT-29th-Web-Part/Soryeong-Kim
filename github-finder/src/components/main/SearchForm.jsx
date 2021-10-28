@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { SearchHistory } from "..";
 
-const SearchForm = ({ setData, setIsActive, setIsPending }) => {
+const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
   const [inputValue, setInputValue] = useState("");
+  const [showHistory, setShowHistory] = useState(false);
+
+  const saveHistory = (value) => {
+    const history = JSON.parse(localStorage["searchedId"] || "[]");
+    history.push(value);
+    localStorage["searchedId"] = JSON.stringify(history);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,30 +21,46 @@ const SearchForm = ({ setData, setIsActive, setIsPending }) => {
         `https://api.github.com/users/${inputValue}`
       );
       setData(response.data);
+      saveHistory(inputValue);
     } catch (err) {
       setData(Error);
     }
     setIsPending(false);
     setInputValue("");
-    setIsActive(true);
+    setIsFetched(true);
+    setShowHistory(false);
   };
 
   return (
-    <Wrapper onSubmit={handleSubmit}>
-      <IdInput
-        value={inputValue}
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
+    <Wrapper>
+      <FormWrapper onSubmit={handleSubmit}>
+        <IdInput
+          value={inputValue}
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
+          onFocus={() => setShowHistory(true)}
+        />
+        <InputButton>검색</InputButton>
+      </FormWrapper>
+      <SearchHistory
+        setIsPending={setIsPending}
+        setData={setData}
+        setIsFetched={setIsFetched}
+        showHistory={showHistory}
+        setShowHistory={setShowHistory}
       />
-      <InputButton>검색</InputButton>
     </Wrapper>
   );
 };
 
 export default SearchForm;
 
-const Wrapper = styled.form`
+const Wrapper = styled.div`
+  position: relative;
+`;
+
+const FormWrapper = styled.form`
   position: relative;
   display: flex;
   align-items: center;

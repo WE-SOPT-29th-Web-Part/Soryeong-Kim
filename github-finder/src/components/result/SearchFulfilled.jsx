@@ -3,7 +3,7 @@ import styled from "styled-components";
 import githubIcon from "./githubIcon.png";
 import { DescriptionWrapper } from "..";
 
-const SearchResult = ({ data, isActive, setIsActive }) => {
+const SearchResult = ({ data, isFetched, setIsFetched }) => {
   const sampleData = {
     avatar_url: githubIcon,
     isError: true,
@@ -11,10 +11,10 @@ const SearchResult = ({ data, isActive, setIsActive }) => {
   const userData = data.id === undefined ? sampleData : data;
 
   return (
-    <Wrapper isActive={isActive}>
+    <Wrapper isFetched={isFetched}>
       <Profile src={userData.avatar_url} />
       <DescriptionWrapper data={userData} />
-      <CloseButton onClick={() => setIsActive(false)}>X</CloseButton>
+      <CloseButton onClick={() => setIsFetched(false)}>X</CloseButton>
     </Wrapper>
   );
 };
@@ -22,7 +22,7 @@ const SearchResult = ({ data, isActive, setIsActive }) => {
 export default SearchResult;
 
 const Wrapper = styled.main`
-  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
+  visibility: ${(props) => (props.isFetched ? "visible" : "hidden")};
   position: relative;
   margin-top: 2rem;
   display: flex;

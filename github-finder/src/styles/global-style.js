@@ -59,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #b9e2f5;
+    background-color: ${({ theme }) => theme.colors.skyblue};
     z-index: -1;
   }
 
