@@ -45,6 +45,10 @@ export const GlobalStyle = createGlobalStyle`
     background-color: transparent;                                                                                                                                                                        
   }
 
+  button {
+    cursor: pointer;
+  }
+
   input {
     border: 0.1rem solid ${({ theme }) => theme.colors.gray3};
   }

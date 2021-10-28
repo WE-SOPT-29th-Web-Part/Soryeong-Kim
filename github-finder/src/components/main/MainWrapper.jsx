@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { SearchForm, SearchResult } from "..";
 
 const MainWrapper = () => {
+  const [data, setData] = useState("");
+
   return (
     <>
-      <SearchForm />
-      <SearchResult />
+      <SearchForm setData={setData} />
+      {data && <SearchResult data={data} />}
     </>
   );
 };
