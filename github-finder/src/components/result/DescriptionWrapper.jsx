@@ -11,10 +11,9 @@ const DescriptionWrapper = ({ data }) => {
   return (
     <Description>
       {data.bio && <UserBio>{data.bio}</UserBio>}
-      <UserInfo>
-        <InfoText>{data.name}</InfoText>
-        <InfoText>{data.login}</InfoText>
-      </UserInfo>
+      <InfoText>
+        {data.name} | {data.login}
+      </InfoText>
       <ButtonWrapper>
         <VisitButton href={data.html_url}>Github 구경하기</VisitButton>
         {data.blog && (
@@ -22,14 +21,16 @@ const DescriptionWrapper = ({ data }) => {
         )}
       </ButtonWrapper>
       <GithubInfo>
-        <InfoText style={{ color: "#F7630C" }}>
-          레포 {data.public_repos}개
+        <InfoText>
+          레포 <span style={{ color: "#F7630C" }}>{data.public_repos}</span>개
         </InfoText>
-        <InfoText style={{ color: "#F7630C" }}>
-          {data.followers}명이 팔로잉 중
+        <InfoText>
+          <span style={{ color: "#F7630C" }}>{data.followers}</span>명이 팔로잉
+          중
         </InfoText>
-        <InfoText style={{ color: "#F7630C" }}>
-          {data.following}명을 팔로잉 중
+        <InfoText>
+          <span style={{ color: "#F7630C" }}>{data.following}</span>명을 팔로잉
+          중
         </InfoText>
       </GithubInfo>
     </Description>
@@ -51,18 +52,14 @@ const Description = styled.div`
 
 const UserBio = styled.p`
   text-align: center;
-  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-size: ${({ theme }) => theme.fontSizes.xxl};
   font-weight: bold;
 `;
 
-const UserInfo = styled.div`
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-around;
-`;
-
 const InfoText = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.base};
   font-weight: bold;
 `;
 
@@ -91,7 +88,6 @@ const VisitButton = styled.a`
 `;
 
 const GithubInfo = styled.section`
-  margin-top: 1.5rem;
   display: flex;
   justify-content: space-around;
 `;
