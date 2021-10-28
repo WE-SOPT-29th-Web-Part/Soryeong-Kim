@@ -3,10 +3,18 @@ import { SearchResult, SearchForm } from "..";
 
 const MainWrapper = () => {
   const [data, setData] = useState("");
+  const [isActive, setIsActive] = useState(true);
+
   return (
     <>
-      <SearchForm setData={setData} />
-      {data && <SearchResult data={data} />}
+      <SearchForm setData={setData} setIsActive={setIsActive} />
+      {data && (
+        <SearchResult
+          data={data}
+          isActive={isActive}
+          setIsActive={setIsActive}
+        />
+      )}
     </>
   );
 };

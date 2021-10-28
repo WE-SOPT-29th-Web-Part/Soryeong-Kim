@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const SearchForm = ({ setData }) => {
+const SearchForm = ({ setData, setIsActive }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = async (e) => {
@@ -17,6 +17,7 @@ const SearchForm = ({ setData }) => {
       setData(Error);
     }
     setInputValue("");
+    setIsActive(true);
   };
 
   return (
