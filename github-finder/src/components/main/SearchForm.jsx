@@ -9,6 +9,7 @@ const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
 
   const saveHistory = (value) => {
     const history = JSON.parse(localStorage["searchedId"] || "[]");
+    if (history.length >= 3) history.splice(0, 1);
     history.push(value);
     localStorage["searchedId"] = JSON.stringify(Array.from(new Set(history)));
   };
@@ -21,7 +22,6 @@ const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
         `https://api.github.com/users/${inputValue}`
       );
       setData(response.data);
-      saveHistory(inputValue);
     } catch (err) {
       setData(Error);
     }
@@ -29,6 +29,7 @@ const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
     setInputValue("");
     setIsPending(false);
     setIsFetched(true);
+    saveHistory(inputValue);
   };
 
   return (
@@ -74,6 +75,7 @@ const IdInput = styled.input`
   font-size: ${({ theme }) => theme.fontSizes.base};
   border: 0.2rem solid ${({ theme }) => theme.colors.white};
   border-radius: 5px;
+  padding: 0 1rem;
 `;
 
 const InputButton = styled.button`

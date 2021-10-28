@@ -24,22 +24,30 @@ const SearchHistory = ({
     setIsFetched(true);
     setShowHistory(false);
   };
+
+  const handleRemove = (idx) => {
+    historyArray.splice(idx, 1);
+    localStorage["searchedId"] = JSON.stringify(historyArray);
+    setShowHistory(false);
+  };
+
   if (historyArray.length)
     return (
-      <History showHistory={showHistory}>
+      <HistoryWrapper showHistory={showHistory}>
         {historyArray.map((history, idx) => (
-          <Text key={`history-${idx}`} onClick={() => handleSubmit(history)}>
-            {history}
-          </Text>
+          <History key={`history-${idx}`}>
+            <Text onClick={() => handleSubmit(history)}>{history}</Text>
+            <DelBtn onClick={() => handleRemove(idx)}>X</DelBtn>
+          </History>
         ))}
-      </History>
+      </HistoryWrapper>
     );
   return <></>;
 };
 
 export default SearchHistory;
 
-const History = styled.div`
+const HistoryWrapper = styled.div`
   visibility: ${(props) => (props.showHistory ? "visible" : "hidden")};
   background-color: ${({ theme }) => theme.colors.white};
   border: 0.1rem solid ${({ theme }) => theme.colors.blue};
@@ -48,14 +56,26 @@ const History = styled.div`
   margin-top: 0.5rem;
   position: absolute;
   z-index: 3;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
 `;
 
-const Text = styled.p`
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+const History = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  & + p {
+  & + div {
     border-top: 0.1rem solid ${({ theme }) => theme.colors.skyblue};
   }
+`;
+
+const Text = styled.span`
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+`;
+
+const DelBtn = styled.button`
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  color: ${({ theme }) => theme.colors.blue};
 `;
