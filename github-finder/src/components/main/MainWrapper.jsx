@@ -1,24 +1,12 @@
-import React, { useState } from "react";
-import { SearchForm, Result } from "..";
+import React, { useState } from 'react';
+import { SearchForm, Result } from '..';
 
 const MainWrapper = () => {
-  const [data, setData] = useState("");
-  const [isFetched, setIsFetched] = useState(false);
-  const [isPending, setIsPending] = useState(false);
-
+  const [userInfo, setUserInfo] = useState({ data: null, status: 'idle' });
   return (
     <>
-      <Result
-        data={data}
-        isFetched={isFetched}
-        setIsFetched={setIsFetched}
-        isPending={isPending}
-      />
-      <SearchForm
-        setData={setData}
-        setIsFetched={setIsFetched}
-        setIsPending={setIsPending}
-      />
+      <Result userInfo={userInfo} />
+      <SearchForm setUserInfo={setUserInfo} />
     </>
   );
 };

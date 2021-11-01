@@ -1,37 +1,58 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { SearchHistory } from "..";
 
-const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
+const SearchForm = ({ setUserInfo }) => {
   const [inputValue, setInputValue] = useState("");
   const [showHistory, setShowHistory] = useState(false);
+  const [historyArr, setHistoryArr] = useState(
+    JSON.parse(localStorage["searchedId"] || "[]")
+  );
 
   const saveHistory = (value) => {
-    const history = JSON.parse(localStorage["searchedId"] || "[]");
-    if (history.length >= 3) history.splice(0, 1);
-    history.push(value);
-    localStorage["searchedId"] = JSON.stringify(Array.from(new Set(history)));
+    setHistoryArr(Array.from(new Set([...historyArr, value])));
+    // if (historyArr.length >= 3) handleRemove(0);
+    localStorage["searchedId"] = JSON.stringify(historyArr);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setIsPending(true);
-      const response = await axios.get(
+      setUserInfo((current) => ({ ...current, status: "pending" }));
+      const { data } = await axios.get(
         `https://api.github.com/users/${inputValue}`
       );
-      setData(response.data);
-    } catch (err) {
-      setData(Error);
+      setUserInfo((current) => ({ ...current, data, status: "resolved" }));
+    } catch (error) {
+      setUserInfo((current) => ({
+        ...current,
+        data: null,
+        status: "rejected",
+      }));
     }
     setShowHistory(false);
     setInputValue("");
-    setIsPending(false);
-    setIsFetched(true);
     saveHistory(inputValue);
   };
 
+  const submitHistory = async (history) => {
+    setUserInfo((current) => ({ ...current, status: "pending" }));
+    const { data } = await axios.get(`https://api.github.com/users/${history}`);
+    setUserInfo((current) => ({ ...current, data, status: "resolved" }));
+    setShowHistory(false);
+    setInputValue("");
+  };
+
+  const handleRemove = (idx) => {
+    setHistoryArr((current) => {
+      return current.filter((c, i) => i !== idx);
+    });
+    localStorage["searchedId"] = JSON.stringify(historyArr);
+  };
+
+  useEffect(() => {
+    console.log(`historyArr`, historyArr);
+  }, [historyArr]);
   return (
     <Wrapper>
       <FormWrapper onSubmit={handleSubmit}>
@@ -44,13 +65,16 @@ const SearchForm = ({ setData, setIsFetched, setIsPending }) => {
         />
         <InputButton>검색</InputButton>
       </FormWrapper>
-      <SearchHistory
-        setIsPending={setIsPending}
-        setData={setData}
-        setIsFetched={setIsFetched}
-        showHistory={showHistory}
-        setShowHistory={setShowHistory}
-      />
+      {historyArr.length !== 0 && (
+        <HistoryWrapper showHistory={showHistory}>
+          {historyArr.map((history, idx) => (
+            <History key={`history-${idx}`}>
+              <Text onClick={() => submitHistory(history)}>{history}</Text>
+              <DelBtn onClick={() => handleRemove(idx)}>X</DelBtn>
+            </History>
+          ))}
+        </HistoryWrapper>
+      )}
     </Wrapper>
   );
 };
@@ -88,4 +112,37 @@ const InputButton = styled.button`
   &:hover {
     color: ${({ theme }) => theme.colors.black};
   }
+`;
+
+const HistoryWrapper = styled.div`
+  visibility: ${(props) => (props.showHistory ? "visible" : "hidden")};
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 0.1rem solid ${({ theme }) => theme.colors.blue};
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 0.5rem;
+  position: absolute;
+  z-index: 3;
+  padding: 0.5rem 0.5rem;
+`;
+
+const History = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & + div {
+    border-top: 0.1rem solid ${({ theme }) => theme.colors.skyblue};
+  }
+`;
+
+const Text = styled.span`
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+`;
+
+const DelBtn = styled.button`
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  color: ${({ theme }) => theme.colors.blue};
 `;

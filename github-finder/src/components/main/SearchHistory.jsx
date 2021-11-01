@@ -1,40 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
 const SearchHistory = ({
+  setUserInfo,
   showHistory,
-  setIsPending,
-  setData,
-  setIsFetched,
   setShowHistory,
+  historyArr,
+  setHistoryArr,
 }) => {
-  const historyArray = JSON.parse(localStorage["searchedId"] || "[]");
   const handleSubmit = async (history) => {
     try {
-      setIsPending(true);
-      const response = await axios.get(
+      setUserInfo((current) => ({ ...current, status: "pending" }));
+      const { data } = await axios.get(
         `https://api.github.com/users/${history}`
       );
-      setData(response.data);
-    } catch (err) {
-      setData(Error);
+      setUserInfo((current) => ({ ...current, data, status: "resolved" }));
+    } catch (error) {
+      setUserInfo((current) => ({
+        ...current,
+        data: null,
+        status: "rejected",
+      }));
     }
-    setIsPending(false);
-    setIsFetched(true);
     setShowHistory(false);
   };
 
   const handleRemove = (idx) => {
-    historyArray.splice(idx, 1);
-    localStorage["searchedId"] = JSON.stringify(historyArray);
-    setShowHistory(false);
+    setHistoryArr((current) => {
+      return current.splice(idx, 1);
+    });
+    localStorage["searchedId"] = JSON.stringify(historyArr);
   };
-
-  if (historyArray.length)
+  console.log(`historyArr`, historyArr);
+  if (historyArr.length)
     return (
       <HistoryWrapper showHistory={showHistory}>
-        {historyArray.map((history, idx) => (
+        {historyArr.map((history, idx) => (
           <History key={`history-${idx}`}>
             <Text onClick={() => handleSubmit(history)}>{history}</Text>
             <DelBtn onClick={() => handleRemove(idx)}>X</DelBtn>

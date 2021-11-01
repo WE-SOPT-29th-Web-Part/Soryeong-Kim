@@ -1,30 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import githubIcon from "./githubIcon.png";
 import { DescriptionWrapper } from "..";
 
-const SearchResult = ({ data, isFetched, setIsFetched }) => {
+const SearchResolved = ({ userInfo }) => {
+  const [isVisible, setIsVisible] = useState(true);
   const sampleData = {
     avatar_url: githubIcon,
     isError: true,
   };
-  const userData = data.id === undefined ? sampleData : data;
+  const userData = userInfo.status === "rejected" ? sampleData : userInfo.data;
 
   return (
-    <Wrapper isFetched={isFetched}>
+    <Wrapper isVisible={isVisible}>
       <Profile src={userData.avatar_url} />
       <DescriptionWrapper data={userData} />
-      <CloseButton onClick={() => setIsFetched(false)}>X</CloseButton>
+      <CloseButton onClick={() => setIsVisible(!isVisible)}>X</CloseButton>
     </Wrapper>
   );
 };
 
-export default SearchResult;
+export default SearchResolved;
 
 const Wrapper = styled.main`
-  visibility: ${(props) => (props.isFetched ? "visible" : "hidden")};
+  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
   position: relative;
-  margin-top: 2rem;
   display: flex;
   align-items: flex-start;
 `;

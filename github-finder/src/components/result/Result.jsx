@@ -1,16 +1,24 @@
-import React from "react";
-import { SearchFulfilled, SearchPending } from "..";
+import React from 'react';
+import styled from 'styled-components';
+import { SearchResolved, SearchPending } from '..';
 
-const Result = ({ isPending, data, isFetched, setIsFetched }) => {
-  if (isPending) return <SearchPending />;
-  else
-    return (
-      <SearchFulfilled
-        data={data}
-        isFetched={isFetched}
-        setIsFetched={setIsFetched}
-      />
-    );
+const Result = ({ userInfo }) => {
+  switch (userInfo.status) {
+    default:
+      return <SearchDefault />;
+    case 'pending':
+      return <SearchPending />;
+    case 'resolved':
+      return <SearchResolved userInfo={userInfo} />;
+    case 'rejected':
+      return <SearchResolved userInfo={userInfo} />;
+  }
 };
 
 export default Result;
+
+const SearchDefault = styled.main`
+  width: 4.8rem;
+  height: 15rem;
+  visibility: hidden;
+`;

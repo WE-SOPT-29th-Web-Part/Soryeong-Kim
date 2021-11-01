@@ -1,17 +1,19 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const HeaderWrapper = () => {
   return (
-    <Button>
+    <Header>
       <Text>🏄‍♀️깃허브 서핑🏄‍♂️</Text>
-    </Button>
+    </Header>
   );
 };
 
 export default HeaderWrapper;
 
-const Button = styled.div`
+const Header = styled.header`
+  margin-bottom: 2rem;
+  cursor: pointer;
   width: 30rem;
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
@@ -22,7 +24,7 @@ const Button = styled.div`
   overflow: hidden;
   transition: all 1s;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 500px;
     height: 500px;
