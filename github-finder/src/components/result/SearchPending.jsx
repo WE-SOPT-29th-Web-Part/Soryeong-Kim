@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const SearchPending = () => {
   return <Loader>로딩 중...</Loader>;
@@ -8,7 +8,6 @@ const SearchPending = () => {
 export default SearchPending;
 
 const Loader = styled.div`
-  margin-top: 2rem;
   text-align: center;
   height: 15rem;
   font-size: ${({ theme }) => theme.fontSizes.titleSize};
