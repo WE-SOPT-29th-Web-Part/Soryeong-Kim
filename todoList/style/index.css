@@ -105,7 +105,7 @@ li {
 }
 
 .routine__night .routine__icon {
-    background-image: url(../asset/iconFlowernight.svg);
+    background-image: url(../asset/iconFlowerNight.svg);
 }
 
 .routine__title-text {
@@ -155,7 +155,7 @@ li {
 
 .routine__btn.night:hover,
 .routine__btn.--done.night {
-    background-image: url(../asset/iconFlowernight.svg);
+    background-image: url(../asset/iconFlowerNight.svg);
 }
 
 .routine__text {
