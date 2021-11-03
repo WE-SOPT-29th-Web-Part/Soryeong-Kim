@@ -1,34 +1,45 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Publish Demo CI
+name: Generate Static Site
 
 on:
-  push:
-    branches: [ demo ]
+    push:
+        branches:
+            - "demo"
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [12.x]
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-            node-version: ${{ matrix.node-version }}
-      - run: yarn install
-      - run: yarn node ./utils/build.js
-      - run: touch dist/.nojekyll
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@master
-        env:
-            REPO: self
-            BRANCH: gh-pages
-            FOLDER: dist
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - working-directory: ./calcdday
+              name: d-day-calc build
+              run: |
+                  yarn install
+                  yarn build
+                  mkdir -p ../gh-pages/d-day-calc
+                  cp -r ./build/* ../gh-pages/d-day-calc
+                  
+            - working-directory: ./github-finder
+              name: github-profile-finder build
+              run: |
+                  yarn install
+                  yarn build
+                  mkdir -p ../gh-pages/github-profile-finder
+                  cp -r ./build/* ../gh-pages/github-profile-finder                            
+
+            - run: touch gh-pages/.nojekyll
+            - name: Deploy
+              uses: s0/git-publish-subdir-action@master
+              env:
+                  REPO: self
+                  BRANCH: gh-pages
+                  FOLDER: gh-pages
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
