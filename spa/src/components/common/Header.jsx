@@ -1,16 +1,12 @@
-import React from "react";
 import styled from "styled-components";
 
+const StyledHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const Header = () => {
-  return (
-    <div>
-      <StyledTitle>sopt.log</StyledTitle>
-      <StyledButton>새 글 작성</StyledButton>
-    </div>
-  );
+  return <StyledHeader>Header</StyledHeader>;
 };
 
 export default Header;
-
-const StyledTitle = styled.div``;
-const StyledButton = styled.button``;

@@ -48,26 +48,6 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
-
-  input {
-    border: 0.1rem solid ${({ theme }) => theme.colors.gray3};
-  }
-
-  body {
-    padding: 5rem;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: ${({ theme }) => theme.colors.skyblue};
-    z-index: -1;
-  }
-
-  #root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 `;
 
 export default GlobalStyle;
