@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { profileImg, searchIcon } from "../../assets";
 const StyledHeader = styled.header`
@@ -36,7 +37,9 @@ const Header = () => {
       <span>SOPT.log</span>
       <StyledIconWrapper>
         <img className="searchIcon" src={searchIcon} alt="searchIcon" />
-        <button>새 글 작성</button>
+        <button>
+          <Link to="/write">새 글 작성</Link>
+        </button>
         <img className="profileImg" src={profileImg} alt="profileImg" />
       </StyledIconWrapper>
     </StyledHeader>
