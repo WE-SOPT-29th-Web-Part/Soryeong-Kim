@@ -19,10 +19,10 @@ const Header = () => {
   return (
     <Wrapper>
       <Menu selected={pathname === "/"}>
-        <Link to="/">to main</Link>
+        <Link to="/">글 목록 보기</Link>
       </Menu>
-      <Menu selected={pathname.startsWith("/write")}>
-        <Link to="/write">to write</Link>
+      <Menu selected={pathname.startsWith("/series")}>
+        <Link to="/series">시리즈 보기</Link>
       </Menu>
     </Wrapper>
   );

@@ -3,7 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 
 import PostWrapper from "../components/main/PostsWrapper";
 
-const Page1 = () => {
+const Main = () => {
   return (
     <div>
       <h1>This is Main</h1>
@@ -22,4 +22,4 @@ const Page1 = () => {
   );
 };
 
-export default Page1;
+export default Main;
