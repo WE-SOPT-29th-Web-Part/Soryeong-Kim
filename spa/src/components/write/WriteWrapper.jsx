@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { ArticleBody, ArticleFooter, ArticleTags, ArticleTitle } from "..";
+import { ArticleBody, ArticleCheck, ArticleFooter, ArticleTags, ArticleTitle } from "..";
 
 const WriteWrapper = () => {
+  const [isPosting, setIsPosting] = useState(false);
   const [articleData, setArticleData] = useState({
     id: "",
     title: "",
@@ -15,10 +16,11 @@ const WriteWrapper = () => {
 
   return (
     <div>
+      {isPosting ? <ArticleCheck articleData={articleData} setIsPosting={setIsPosting} /> : <></>}
       <ArticleTitle setArticleData={setArticleData} />
       <ArticleTags articleData={articleData} setArticleData={setArticleData} />
       <ArticleBody setArticleData={setArticleData} />
-      <ArticleFooter articleData={articleData} />
+      <ArticleFooter articleData={articleData} setIsPosting={setIsPosting} />
     </div>
   );
 };

@@ -8,3 +8,4 @@ export { default as ArticleBody } from "./write/ArticleBody";
 export { default as ArticleTitle } from "./write/ArticleTitle";
 export { default as ArticleFooter } from "./write/ArticleFooter";
 export { default as ArticleTags } from "./write/ArticleTags";
+export { default as ArticleCheck } from "./write/ArticleCheck";
