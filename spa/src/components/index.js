@@ -3,6 +3,7 @@ export { default as Profile } from "./common/Profile";
 export { default as Header } from "./common/Header";
 export { default as MainWrapper } from "./main/MainWrapper";
 export { default as Series } from "./main/Series";
+export { default as Article } from "./main/Article";
 export { default as WriteWrapper } from "./write/WriteWrapper";
 export { default as ArticleBody } from "./write/ArticleBody";
 export { default as ArticleTitle } from "./write/ArticleTitle";
