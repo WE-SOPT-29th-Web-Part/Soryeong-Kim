@@ -5,7 +5,8 @@ import { Header, MenuWrapper, Profile } from "../components";
 const StyledWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 3rem 10rem;
+  padding: 3rem 5rem;
+  width: 80vw;
 `;
 
 const Main = () => {

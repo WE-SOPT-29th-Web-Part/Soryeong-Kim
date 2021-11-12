@@ -1,6 +1,18 @@
 import styled from "styled-components";
 
-const StyledTextArea = styled.textarea``;
+const StyledTextArea = styled.textarea`
+  width: 100%;
+  height: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border: 0.1rem solid ${({ theme }) => theme.colors.gray2};
+  color: ${({ theme }) => theme.colors.yellow};
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.yellow};
+  }
+`;
 
 const ArticleTitle = ({ setArticleData }) => {
   const handleChange = (e) => {

@@ -3,6 +3,14 @@ import styled from "styled-components";
 
 const StyledField = styled.section`
   display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  & > form {
+    & > input {
+      font-size: 1.2rem;
+    }
+  }
 
   & > .tag {
     display: inline-block;

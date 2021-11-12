@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { profileImg, searchIcon } from "../../assets";
+import { profileImg } from "../../assets";
+import { ReactComponent as SearchIcon } from "../../assets/header/searchIcon.svg";
+
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -17,7 +19,7 @@ const StyledIconWrapper = styled.section`
   align-items: center;
   height: 4rem;
 
-  & > img.searchIcon {
+  & > img {
     width: 1.8rem;
     height: 1.8rem;
   }
@@ -31,7 +33,7 @@ const StyledIconWrapper = styled.section`
     margin: 0 1rem;
   }
 
-  & > img.profileImg {
+  & > img {
     width: 2.5rem;
     height: 2.5rem;
     border: 0.1rem solid ${({ theme }) => theme.colors.black};
@@ -44,11 +46,11 @@ const Header = () => {
     <StyledHeader>
       <span>SOPT.log</span>
       <StyledIconWrapper>
-        <img className="searchIcon" src={searchIcon} alt="searchIcon" />
+        <SearchIcon alt="searchIcon" />
         <button>
           <Link to="/write">새 글 작성</Link>
         </button>
-        <img className="profileImg" src={profileImg} alt="profileImg" />
+        <img src={profileImg} alt="profileImg" />
       </StyledIconWrapper>
     </StyledHeader>
   );

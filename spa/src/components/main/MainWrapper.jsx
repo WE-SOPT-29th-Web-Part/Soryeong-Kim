@@ -5,7 +5,7 @@ import { client } from "../../libs/api";
 
 const StyledWrapper = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
 `;
 

@@ -1,30 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { client } from "../../libs/api";
 
 const StyledWrapper = styled.section`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(256, 256, 256, 0.5);
+  position: absolute;
+  width: 80vw;
+  height: 100%;
+  background-color: rgba(256, 256, 256, 0.8);
+  animation: slideUp 0.5s ease-in forwards;
 
-  & > .fieldWrapper {
+  @keyframes slideUp {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  & > div {
     position: absolute;
-    left: calc(50vw - 10rem);
+    left: calc(40vw - 15rem);
     top: 30vh;
     display: flex;
     flex-direction: column;
 
-    & > .summaryField {
-      width: 20rem;
+    & > textarea {
+      width: 30rem;
       height: 10rem;
+      font-size: 1rem;
+    }
+
+    & > button {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.yellow};
+      border: 0.1rem solid ${({ theme }) => theme.colors.yellow};
+      border-radius: 1rem;
+      padding: 0.2rem 1rem;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.yellow};
+        background-color: ${({ theme }) => theme.colors.white};
+      }
     }
   }
 `;
 
-const ArticleCheck = ({ articleData, setIsPosting }) => {
+const ArticleCheck = ({ articleData, isPosting, setIsPosting }) => {
   const navigate = useNavigate();
+
+  const [animate, setAnimate] = useState(false);
   const [summary, setSummary] = useState("");
   const createArticle = async () => {
     const { data } = await client.get("/article");
@@ -45,14 +73,28 @@ const ArticleCheck = ({ articleData, setIsPosting }) => {
     setIsPosting(false);
     navigate("/");
   };
+
+  useEffect(() => {
+    let timeoutId = null;
+    if (isPosting) setAnimate(true);
+    else if (!isPosting && animate) {
+      timeoutId = setTimeout(() => {
+        setAnimate(false);
+      }, 125);
+    }
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isPosting, animate]);
+
+  if (!isPosting && !animate) return null;
   return (
     <StyledWrapper>
-      <div className="fieldWrapper">
-        <textarea
-          className="summaryField"
-          placeholder="내용을 요약하세요(150자 제한)"
-          onChange={(e) => setSummary(e.target.value)}
-        />
+      <div>
+        <textarea placeholder="내용을 요약하세요(150자 제한)" onChange={(e) => setSummary(e.target.value)} />
         <button onClick={handleClick}>진짜 출간하기</button>
       </div>
     </StyledWrapper>

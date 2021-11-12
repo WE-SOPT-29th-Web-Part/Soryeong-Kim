@@ -48,6 +48,12 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export default GlobalStyle;
