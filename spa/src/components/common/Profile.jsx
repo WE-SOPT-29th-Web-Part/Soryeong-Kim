@@ -4,7 +4,7 @@ import { profileImg } from "../../assets";
 const StyledWrapper = styled.section`
   display: flex;
   align-items: flex-end;
-  padding-bottom: 3rem;
+  padding: 1.5rem 1.5rem 3rem 1.5rem;
   border-bottom: 0.1rem solid ${({ theme }) => theme.colors.gray3};
 
   & > img.profileImg {

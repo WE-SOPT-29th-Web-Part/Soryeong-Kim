@@ -5,6 +5,11 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & > span {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 `;
 
 const StyledIconWrapper = styled.section`
@@ -21,6 +26,9 @@ const StyledIconWrapper = styled.section`
     height: 2rem;
     border: 0.1rem solid ${({ theme }) => theme.colors.black};
     border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 1rem;
   }
 
   & > img.profileImg {
