@@ -23,11 +23,30 @@ const WriteWrapper = () => {
     date: "",
   });
 
+  const handleChange = (key, value) => {
+    const newData = { ...articleData };
+    articleData[key] = value;
+    setArticleData(newData);
+  };
+
+  const handleArrayChange = (key, value, setValue) => {
+    const newData = { ...articleData };
+    newData[key] = [...newData[key], value];
+    setArticleData(newData);
+    setValue("");
+  };
+
+  const handelArrayElemRemove = (key, value) => {
+    const newData = { ...articleData };
+    newData[key] = newData[key].filter((elem) => elem !== value);
+    setArticleData(newData);
+  };
+
   return (
     <StyledWrapper>
-      <ArticleTitle setArticleData={setArticleData} />
-      <ArticleTags articleData={articleData} setArticleData={setArticleData} />
-      <ArticleBody setArticleData={setArticleData} />
+      <ArticleTitle onTitleChange={handleChange} />
+      <ArticleTags articleData={articleData} onTagRemove={handelArrayElemRemove} onTagChange={handleArrayChange} />
+      <ArticleBody onBodyChange={handleChange} />
       <ArticleFooter articleData={articleData} setIsPosting={setIsPosting} />
       <ArticleCheck isPosting={isPosting} articleData={articleData} setIsPosting={setIsPosting} />
     </StyledWrapper>
