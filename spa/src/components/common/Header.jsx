@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import { profileImg } from "../../assets";
 import { ReactComponent as SearchIcon } from "../../assets/header/searchIcon.svg";
 

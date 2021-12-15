@@ -14,8 +14,14 @@ const StyledTextArea = styled.textarea`
   }
 `;
 
-const ArticleTitle = ({ onTitleChange }) => {
-  return <StyledTextArea placeholder="제목을 입력하십시오" onChange={(e) => onTitleChange("title", e.target.value)} />;
+const ArticleTitle = ({ title, onTitleChange }) => {
+  return (
+    <StyledTextArea
+      placeholder="제목을 입력하십시오"
+      value={title}
+      onChange={(e) => onTitleChange("title", e.target.value)}
+    />
+  );
 };
 
 export default ArticleTitle;

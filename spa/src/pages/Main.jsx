@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
 import styled from "styled-components";
+
 import { Header, MenuWrapper, Profile } from "../components";
 
 const StyledWrapper = styled.section`

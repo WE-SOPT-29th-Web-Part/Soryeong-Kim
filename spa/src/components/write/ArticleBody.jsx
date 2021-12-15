@@ -7,8 +7,14 @@ const StyledTextarea = styled.textarea`
   height: 30rem;
   margin-bottom: 2.5rem;
 `;
-const ArticleBody = ({ onBodyChange }) => {
-  return <StyledTextarea placeholder="내용을 입력하세요" onChange={(e) => onBodyChange("body", e.target.value)} />;
+const ArticleBody = ({ body, onBodyChange }) => {
+  return (
+    <StyledTextarea
+      placeholder="내용을 입력하세요"
+      value={body}
+      onChange={(e) => onBodyChange("body", e.target.value)}
+    />
+  );
 };
 
 export default ArticleBody;

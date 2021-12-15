@@ -1,7 +1,82 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
-import { client } from "../../libs/api";
+import { ImgWrapper } from "..";
+
+import { client, formClient } from "../../libs/api";
+
+const ArticleCheck = ({ summaryData, articleData, isPosting, setIsPosting, onDataChange }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const article = location.state;
+  const [animate, setAnimate] = useState(false);
+  const [summary, setSummary] = useState("");
+  const createArticle = async () => {
+    if (article) {
+      await client.patch(`article/${article.id}`, articleData);
+      navigate(`/article/${article.id}`, { state: articleData });
+      return;
+    }
+    await client.post("/article", { ...articleData, summary });
+  };
+
+  const handleClick = () => {
+    createArticle();
+    setIsPosting(false);
+    navigate("/");
+  };
+
+  useEffect(() => {
+    let timeoutId = null;
+    if (isPosting) setAnimate(true);
+    else if (!isPosting && animate) {
+      timeoutId = setTimeout(() => {
+        setAnimate(false);
+      }, 125);
+    }
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isPosting, animate]);
+
+  const handleFileChange = async (e) => {
+    const formData = new FormData();
+    const imgFile = e.target.files[0];
+    formData.append("file", imgFile);
+
+    // formData가 requestBody, post 후 받을 responseBody의 내용이 imgResponse
+    const imgResponse = await formClient.post("", formData);
+    const imgUrl = imgResponse.data.url;
+    onDataChange("thumbnail", imgUrl);
+  };
+
+  if (!isPosting && !animate) return null;
+  return (
+    <StyledWrapper>
+      <div>
+        <div>
+          {articleData.thumbnail && (
+            <ImgWrapper ratio="56%">
+              <img src={articleData.thumbnail} alt="preview" />
+            </ImgWrapper>
+          )}
+          <input type="file" onChange={handleFileChange} />
+        </div>
+        <textarea
+          placeholder="내용을 요약하세요(150자 제한)"
+          value={summaryData}
+          onChange={(e) => setSummary(e.target.value)}
+        />
+        <button onClick={handleClick}>진짜 출간하기</button>
+      </div>
+    </StyledWrapper>
+  );
+};
+
+export default ArticleCheck;
 
 const StyledWrapper = styled.section`
   position: absolute;
@@ -12,7 +87,7 @@ const StyledWrapper = styled.section`
 
   @keyframes slideUp {
     0% {
-      transform: translateX(-100%);
+      transform: translateX(100%);
     }
     100% {
       transform: translateX(0);
@@ -22,7 +97,7 @@ const StyledWrapper = styled.section`
   & > div {
     position: absolute;
     left: calc(40vw - 15rem);
-    top: 30vh;
+    top: 10vh;
     display: flex;
     flex-direction: column;
 
@@ -48,57 +123,3 @@ const StyledWrapper = styled.section`
     }
   }
 `;
-
-const ArticleCheck = ({ articleData, isPosting, setIsPosting }) => {
-  const navigate = useNavigate();
-
-  const [animate, setAnimate] = useState(false);
-  const [summary, setSummary] = useState("");
-  const createArticle = async () => {
-    const { data } = await client.get("/article");
-    const id = data.length + 1;
-    const now = new Date();
-    const date = `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일`;
-
-    await client.post("/article", {
-      ...articleData,
-      id,
-      date,
-      summary,
-    });
-  };
-
-  const handleClick = () => {
-    createArticle();
-    setIsPosting(false);
-    navigate("/");
-  };
-
-  useEffect(() => {
-    let timeoutId = null;
-    if (isPosting) setAnimate(true);
-    else if (!isPosting && animate) {
-      timeoutId = setTimeout(() => {
-        setAnimate(false);
-      }, 125);
-    }
-
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [isPosting, animate]);
-
-  if (!isPosting && !animate) return null;
-  return (
-    <StyledWrapper>
-      <div>
-        <textarea placeholder="내용을 요약하세요(150자 제한)" onChange={(e) => setSummary(e.target.value)} />
-        <button onClick={handleClick}>진짜 출간하기</button>
-      </div>
-    </StyledWrapper>
-  );
-};
-
-export default ArticleCheck;

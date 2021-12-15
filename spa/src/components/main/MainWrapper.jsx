@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+
 import { Article } from "..";
 import { client } from "../../libs/api";
 
@@ -13,7 +14,6 @@ const MainWrapper = () => {
   const [articleArray, setArticleArray] = useState([]);
   const fetchArticle = async () => {
     const { data } = await client.get("/article");
-    console.log(`data`, data);
     setArticleArray(data);
   };
 
