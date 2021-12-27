@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/Soryeong-Kim/static/js/main.42ff34f7.chunk.js",
+    "main.js.map": "/Soryeong-Kim/static/js/main.42ff34f7.chunk.js.map",
+    "runtime-main.js": "/Soryeong-Kim/static/js/runtime-main.2dadf146.js",
+    "runtime-main.js.map": "/Soryeong-Kim/static/js/runtime-main.2dadf146.js.map",
+    "static/js/2.ea493ec8.chunk.js": "/Soryeong-Kim/static/js/2.ea493ec8.chunk.js",
+    "static/js/2.ea493ec8.chunk.js.map": "/Soryeong-Kim/static/js/2.ea493ec8.chunk.js.map",
+    "index.html": "/Soryeong-Kim/index.html",
+    "static/js/2.ea493ec8.chunk.js.LICENSE.txt": "/Soryeong-Kim/static/js/2.ea493ec8.chunk.js.LICENSE.txt",
+    "static/media/githubIcon.6ed712fa.png": "/Soryeong-Kim/static/media/githubIcon.6ed712fa.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2dadf146.js",
+    "static/js/2.ea493ec8.chunk.js",
+    "static/js/main.42ff34f7.chunk.js"
+  ]
+}
