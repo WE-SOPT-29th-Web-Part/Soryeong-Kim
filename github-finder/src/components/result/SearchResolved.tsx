@@ -1,19 +1,34 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import githubIcon from "./githubIcon.png";
-import { DescriptionWrapper } from "..";
+import { useState } from 'react';
+import styled from 'styled-components';
+import githubIcon from './githubIcon.png';
+import { DescriptionWrapper } from '..';
+import { UserInfo, UserInfoState } from 'components/main/MainWrapper';
 
-const SearchResolved = ({ userInfo }) => {
+const SearchResolved = (props: { userInfo: UserInfoState }) => {
+  const userInfo = props.userInfo;
   const [isVisible, setIsVisible] = useState(true);
-  const sampleData = {
+  const sampleData: UserInfo = {
+    bio: '',
+    name: '',
+    login: '',
+    html_url: '',
+    blog: '',
+    public_repos: 0,
+    followers: 0,
+    following: 0,
     avatar_url: githubIcon,
     isError: true,
   };
-  const userData = userInfo.status === "rejected" ? sampleData : userInfo.data;
+
+  let userData: UserInfo = sampleData;
+
+  if (userInfo.data && userInfo.status != 'rejected') {
+    userData = userInfo.data;
+  }
 
   return (
     <Wrapper isVisible={isVisible}>
-      <Profile src={userData.avatar_url} />
+      <Profile src={userData?.avatar_url} />
       <DescriptionWrapper data={userData} />
       <CloseButton onClick={() => setIsVisible(!isVisible)}>X</CloseButton>
     </Wrapper>
@@ -22,8 +37,8 @@ const SearchResolved = ({ userInfo }) => {
 
 export default SearchResolved;
 
-const Wrapper = styled.main`
-  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
+const Wrapper = styled.main<{ isVisible: boolean }>`
+  visibility: ${({ isVisible }) => (isVisible ? 'visible' : 'hidden')};
   position: relative;
   display: flex;
   align-items: flex-start;

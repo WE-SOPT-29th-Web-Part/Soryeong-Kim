@@ -1,13 +1,16 @@
-import React from "react";
-import styled from "styled-components";
+import { UserInfo } from 'components/main/MainWrapper';
+import styled from 'styled-components';
 
-const DescriptionWrapper = ({ data }) => {
+const DescriptionWrapper = (props: { data: UserInfo }) => {
+  const data = props.data;
+
   if (data.isError)
     return (
       <Description>
-        <UserBio style={{ color: "#0097e6" }}>404 Not Found</UserBio>
+        <UserBio style={{ color: '#0097e6' }}>404 Not Found</UserBio>
       </Description>
     );
+
   return (
     <Description>
       {data.bio && <UserBio>{data.bio}</UserBio>}
@@ -22,14 +25,14 @@ const DescriptionWrapper = ({ data }) => {
       </ButtonWrapper>
       <GithubInfo>
         <InfoText>
-          레포 <span style={{ color: "#0097e6" }}>{data.public_repos}</span>개
+          레포 <span style={{ color: '#0097e6' }}>{data.public_repos}</span>개
         </InfoText>
         <InfoText>
-          <span style={{ color: "#0097e6" }}>{data.followers}</span>명이 팔로잉
+          <span style={{ color: '#0097e6' }}>{data.followers}</span>명이 팔로잉
           중
         </InfoText>
         <InfoText>
-          <span style={{ color: "#0097e6" }}>{data.following}</span>명을 팔로잉
+          <span style={{ color: '#0097e6' }}>{data.following}</span>명을 팔로잉
           중
         </InfoText>
       </GithubInfo>

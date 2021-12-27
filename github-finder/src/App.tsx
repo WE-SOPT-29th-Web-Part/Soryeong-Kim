@@ -1,4 +1,4 @@
-import { HeaderWrapper, MainWrapper } from "./components";
+import { HeaderWrapper, MainWrapper } from './components';
 
 function App() {
   return (

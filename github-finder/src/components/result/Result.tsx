@@ -1,8 +1,10 @@
-import React from 'react';
+import { UserInfoState } from 'components/main/MainWrapper';
 import styled from 'styled-components';
 import { SearchResolved, SearchPending } from '..';
 
-const Result = ({ userInfo }) => {
+const Result = (props: { userInfo: UserInfoState }) => {
+  const userInfo = props.userInfo;
+
   switch (userInfo.status) {
     default:
       return <SearchDefault />;
