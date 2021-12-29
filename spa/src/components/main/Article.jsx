@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+import { ImgWrapper } from "..";
 
 const StyledArticle = styled.article`
   margin-top: 2rem;
@@ -17,7 +20,7 @@ const StyledArticle = styled.article`
   }
 `;
 
-const StyledTags = styled.section`
+export const StyledTags = styled.section`
   & > span + span {
     display: inline-block;
     margin-left: 1rem;
@@ -34,14 +37,20 @@ const StyledTags = styled.section`
 const Article = ({ article }) => {
   return (
     <StyledArticle>
-      <strong>{article.title}</strong>
+      <Link to={`article/${article.id}`} state={article}>
+        <strong>{article.title}</strong>
+      </Link>
       <StyledTags>
         <span>{article.date}</span>
         {article.tags.map((tag, i) => (
           <span key={`tag-${i}`}>{tag}</span>
         ))}
       </StyledTags>
-      <img src={article.thumbnail} alt="thumbnail" />
+      {article.thumbnail && (
+        <ImgWrapper ratio="56%">
+          <img src={article.thumbnail} alt="thumbnail" />
+        </ImgWrapper>
+      )}
       <p>{article.summary}</p>
     </StyledArticle>
   );

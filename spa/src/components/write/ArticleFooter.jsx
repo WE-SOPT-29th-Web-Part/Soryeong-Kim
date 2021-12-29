@@ -28,7 +28,6 @@ const StyledWrapper = styled.section`
 const ArticleFooter = ({ articleData, setIsPosting }) => {
   const handleClick = () => {
     if (articleData.title && articleData.body) {
-      console.log("clicked");
       setIsPosting(true);
     }
   };

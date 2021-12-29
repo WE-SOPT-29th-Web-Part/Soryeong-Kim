@@ -23,27 +23,22 @@ const StyledField = styled.section`
   }
 `;
 
-const ArticleTags = ({ articleData, setArticleData }) => {
-  const [tag, setTag] = useState("");
+const ArticleTags = ({ articleData, onTagChange, onTagRemove }) => {
+  const [newTag, setNewTag] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    setArticleData((current) => {
-      const tags = [...current.tags];
-      if (!tags.includes(tag)) tags.push(tag);
-      setTag("");
-      return { ...current, tags };
-    });
+    onTagChange("tags", newTag, setNewTag);
   };
 
   return (
     <StyledField>
       {articleData.tags.map((tag, idx) => (
-        <span className="tag" key={`tag-${idx}`}>
+        <span className="tag" key={`tag-${idx}`} onClick={() => onTagRemove("tags", tag)}>
           {tag}
         </span>
       ))}
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="태그를 입력하세요" value={tag} onChange={(e) => setTag(e.target.value)} />
+        <input type="text" placeholder="태그를 입력하세요" value={newTag} onChange={(e) => setNewTag(e.target.value)} />
       </form>
     </StyledField>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import { MainWrapper, Series } from ".";
-import { Main, Write } from "../pages";
+import { Main, Write, Article } from "../pages";
 
 const Router = () => {
   return (
@@ -12,6 +13,8 @@ const Router = () => {
           <Route path="/series" element={<Series />} />
         </Route>
         <Route path="/write/*" element={<Write />} />
+        <Route path="/article/:id" element={<Article />} />
+        <Route path="/articleEdit/:id" element={<Write />} />
       </Routes>
     </BrowserRouter>
   );

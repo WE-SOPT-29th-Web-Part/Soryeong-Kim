@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { ReactComponent as GithubIcon } from "../../assets/header/githubIcon.svg";
 import { ReactComponent as MailIcon } from "../../assets/header/mailIcon.svg";
 import { profileImg } from "../../assets";
